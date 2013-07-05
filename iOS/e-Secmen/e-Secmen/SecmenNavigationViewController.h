@@ -1,5 +1,5 @@
 //
-//  SecmenViewController.h
+//  SecmenNavigationViewController.h
 //  e-Secmen
 //
 //  Created by Alperen Kavun on 05.07.2013.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecmenViewController : UIViewController
+@interface SecmenNavigationViewController : UINavigationController
 
 @end

@@ -13,6 +13,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    if([[UIScreen mainScreen] bounds].size.height == 568){
+        _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mainbg-568h.png"]];
+    }
+    else{
+        _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mainbg.png"]];
+    }
+    
     return YES;
 }
 							
