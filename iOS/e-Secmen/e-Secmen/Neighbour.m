@@ -14,36 +14,14 @@
     return [[Neighbour alloc] initWithDictionary:aDictionary];
 }
 
-+ (id) neighbourWithName:(NSString *)name
-              doorNumber:(NSString *)doorNumber {
-    return [[Neighbour alloc] initWithName:name
-                                doorNumber:doorNumber];
-}
-
 - (id) initWithDictionary:(NSDictionary *)aDictionary {
     if(self = [super init]) {
-        _name = [NSString stringWithFormat:@"%@ %@", [aDictionary objectForKey:@"Ad"], [aDictionary objectForKey:@"Soyad"]];
-        _doorNumber = [NSString stringWithFormat:@"%@", [aDictionary objectForKey:@"DaireNo"]];
+        _name = [NSString stringWithFormat:@"%@ %@", [aDictionary objectForKey:@"Adi"], [aDictionary objectForKey:@"Soyadi"]];
+        _doorNumber = [NSString stringWithFormat:@"%@", [aDictionary objectForKey:@"Daire"]];
         
         return self;
     }
     return nil;
-}
-
-- (id) initWithName:(NSString *)name doorNumber:(NSString *)doorNumber {
-    
-    if(self = [super init]) {
-        _name = name;
-        _doorNumber = doorNumber;
-        
-        return self;
-    }
-    return nil;
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-    return [[Neighbour allocWithZone:zone] initWithName:self.name
-                                             doorNumber:self.doorNumber];
 }
 
 @end

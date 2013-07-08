@@ -15,14 +15,6 @@
 
 + (id)neighbourFromDictionary:(NSDictionary *)aDictionary;
 
-+ (id)neighbourWithName:(NSString *)name
-             doorNumber:(NSString *)doorNumber;
-
 - (id)initWithDictionary:(NSDictionary *)aDictionary;
-
-- (id)initWithName:(NSString *)name
-        doorNumber:(NSString *)doorNumber;
-
-- (id)copyWithZone:(NSZone *)zone;
 
 @end
