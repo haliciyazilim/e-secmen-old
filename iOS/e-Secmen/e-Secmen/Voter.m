@@ -15,60 +15,15 @@
     return [[Voter alloc] initFromDictionary:aDictionary];
 }
 
-+ (id) voterWithName:(NSString *)name
-             school:(NSString *)school
-           province:(NSString *)province
-              chest:(NSString *)chest
-         chestIndex:(NSString *)chestIndex {
-    return [[Voter alloc] initWithName:name
-                                school:school
-                              province:province
-                                 chest:chest
-                            chestIndex:chestIndex];
-}
-
-+ (id) voterWithName:(NSString *)name
-              school:(NSString *)school
-            province:(NSString *)province
-               chest:(NSString *)chest
-          chestIndex:(NSString *)chestIndex
-   fellowsInBuilding:(NSArray *)fellowsInBuilding
-      fellowsInChest:(NSArray *)fellowsInChest {
-    return [[Voter alloc] initWithName:name
-                                school:school
-                              province:province
-                                 chest:chest
-                            chestIndex:chestIndex
-                     fellowsInBuilding:fellowsInBuilding
-                        fellowsInChest:fellowsInChest];
-}
-
 - (id) initFromDictionary:(NSDictionary *)aDictionary {
     if(self = [super init]) {
         
-        NSDictionary *kunyeDictionary = [aDictionary objectForKey:@"KisiBilgisi"];
-        NSArray *buildingArray = [aDictionary objectForKey:@"AyniBinadakiler"];
-        NSArray *chestArray = [aDictionary objectForKey:@"AyniSandiktakiler"];
+        NSDictionary *kunyeDictionary = [aDictionary objectForKey:@"KisiBilgileri"];
+        NSArray *homeArray = [aDictionary objectForKey:@"AyniAdresteOyKullananlar"];
+        NSArray *buildingArray = [aDictionary objectForKey:@"AyniBinadaOyKullananlar"];
         
-        _name = [NSString stringWithFormat:@"%@ %@", [kunyeDictionary objectForKey:@"Ad"], [kunyeDictionary objectForKey:@"Soyad"]];
-        _province = [NSString stringWithFormat:@"%@ %@ %@", [kunyeDictionary objectForKey:@"Il"], [kunyeDictionary objectForKey:@"Ilce"], [kunyeDictionary objectForKey:@"Mahalle"]];
-        _school = [kunyeDictionary objectForKey:@"SandikAlani"];
-        _chest = [NSString stringWithFormat:@"%@", [kunyeDictionary objectForKey:@"SandikNo"]];
-        _chestIndex = [NSString stringWithFormat:@"%@", [kunyeDictionary objectForKey:@"SandikSiraNo"]];
-        if([aDictionary objectForKey:@"EskiListe"]){
-            _isInformationsOld = [[aDictionary objectForKey:@"EskiListe"] boolValue];
-        }
-        else{
-            _isInformationsOld = YES;
-        }
-        if([aDictionary objectForKey:@"SecimYili"]){
-            _electionYear = [aDictionary objectForKey:@"SecimYili"];
-        }
-        else{
-            _electionYear = @"2011";
-        }
-        
-        
+        _name = [kunyeDictionary objectForKey:@"AdSoyad"];
+        _province = [NSString stringWithFormat:@"%@ %@ %@", [kunyeDictionary objectForKey:@"Il"], [kunyeDictionary objectForKey:@"Ilce"], [kunyeDictionary objectForKey:@"Muhtarlik"]];
         
         NSMutableArray *fellowsInBuildingArray = [NSMutableArray array];
         
@@ -76,50 +31,37 @@
             [fellowsInBuildingArray addObject:[Neighbour neighbourFromDictionary:fellow]];
         }
         
+        [fellowsInBuildingArray sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            int doorNumber1 = [((Neighbour*)obj1).doorNumber integerValue];
+            int doorNumber2 = [((Neighbour*)obj2).doorNumber integerValue];
+            
+            if (doorNumber1 <= doorNumber2) {
+                return NSOrderedAscending;
+            } else {
+                return NSOrderedDescending;
+            }
+        }];
+        
         _fellowsInBuilding = fellowsInBuildingArray;
         
+        NSMutableArray* fellowsInHome = [NSMutableArray array];
         
-        
-        NSMutableArray *fellowsInChestArray = [NSMutableArray array];
-        
-        for (NSDictionary *fellow in chestArray) {
-            [fellowsInChestArray addObject:[Neighbour neighbourFromDictionary:fellow]];
+        for (NSDictionary* fellow in homeArray) {
+            [fellowsInHome addObject:[Neighbour neighbourFromDictionary:fellow]];
         }
         
-        _fellowsInChest = fellowsInChestArray;
+        [fellowsInHome sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            int doorNumber1 = [((Neighbour*)obj1).doorNumber integerValue];
+            int doorNumber2 = [((Neighbour*)obj2).doorNumber integerValue];
+            
+            if (doorNumber1 <= doorNumber2) {
+                return NSOrderedAscending;
+            } else {
+                return NSOrderedDescending;
+            }
+        }];
         
-        
-        
-        return self;
-    }
-    
-    return nil;
-}
-
-- (id) initWithName:(NSString *)name school:(NSString *)school province:(NSString *)province chest:(NSString *)chest chestIndex:(NSString *)chestIndex {
-    
-    if(self = [super init]) {
-        _name = name;
-        _school = school;
-        _province = province;
-        _chest = chest;
-        _chestIndex = chestIndex;
-        
-        return self;
-    }
-    
-    return nil;
-}
-- (id) initWithName:(NSString *)name school:(NSString *)school province:(NSString *)province chest:(NSString *)chest chestIndex:(NSString *)chestIndex fellowsInBuilding:(NSArray *)fellowsInBuilding fellowsInChest:(NSArray *)fellowsInChest {
-    
-    if(self = [super init]) {
-        _name = name;
-        _school = school;
-        _province = province;
-        _chest = chest;
-        _chestIndex = chestIndex;
-        _fellowsInBuilding = fellowsInBuilding;
-        _fellowsInChest = fellowsInChest;
+        _fellowsInHouse = fellowsInHome;
         
         return self;
     }
