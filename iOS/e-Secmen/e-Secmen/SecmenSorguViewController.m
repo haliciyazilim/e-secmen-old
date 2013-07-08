@@ -8,6 +8,7 @@
 
 #import "SecmenSorguViewController.h"
 
+#import "SecmenTabBarViewController.h"
 #import "APIManager.h"
 
 @interface SecmenSorguViewController ()
@@ -166,14 +167,11 @@
 {
     
     if ([[segue identifier] isEqualToString:@"ShowQueryResult"]) {
-//        SandikTabBarViewController *sandikTabBarViewController = [segue destinationViewController];
-//        sandikTabBarViewController.voter = currentVoter;
-        
+        SecmenTabBarViewController *secmenTabBarViewController = [segue destinationViewController];
+        secmenTabBarViewController.voter = currentVoter;
     }
     
     [self.tckNoTextField resignFirstResponder];
-    
-    
 }
 
 - (IBAction)performQuery:(id)sender {
@@ -184,37 +182,28 @@
         self.loadingAlert = [[UIAlertView alloc] initWithTitle:@"Lütfen Bekleyiniz." message:@"Seçmen bilgileriniz yükleniyor.." delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
         UIActivityIndicatorView *myIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         myIndicator.hidesWhenStopped = YES;
-        //    myIndicator.color = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:1];
         [self.loadingAlert addSubview:myIndicator];
         [self.loadingAlert show];
         myIndicator.frame = CGRectMake(110, 64, 60, 60);
         [myIndicator startAnimating];
         
-//        [[APIManager sharedInstance] getVoterWithTckNo:self.tckNoTextField.text username:self.currentUsername andPassword:self.currentPassword
-//                                          onCompletion:^(Voter *voter) {
-//                                              [self dismissLoadingView];
-//                                              currentVoter = voter;
-//                                              [self performSegueWithIdentifier:@"ShowQueryResult" sender:self];
-//                                              
-//                                          } onError:^(NSError *error) {
-//                                              [self dismissLoadingView];
-//                                              if (error.code == -110) {
-//                                                  isLoginFalse = YES;
-//                                              }
-//                                              UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Hata"
-//                                                                                                message:[error localizedDescription]
-//                                                                                               delegate:self
-//                                                                                      cancelButtonTitle:@"Tamam"
-//                                                                                      otherButtonTitles:nil, nil];
-//                                              [myAlert show];
-//                                              
-//                                          }];
+        [[APIManager sharedInstance] getVoterWithTckNo:tck onCompletion:^(Voter *voter) {
+            [self dismissLoadingView];
+            currentVoter = voter;
+            [self performSegueWithIdentifier:@"ShowQueryResult" sender:self];
+        } onError:^(NSError *error) {
+            [self dismissLoadingView];
+            UIAlertView *myAlert = [[UIAlertView alloc] initWithTitle:@"Hata"
+                                                              message:[error localizedDescription]
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Tamam"
+                                                    otherButtonTitles:nil, nil];
+            [myAlert show];
+        }];
     }
     else{
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Hata" message:@"Lütfen 11 haneli T.C. Kimlik numaranızı giriniz." delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil, nil];
         [alertView show];
-        
-        
     }
 }
 -(void)dismissLoadingView {
