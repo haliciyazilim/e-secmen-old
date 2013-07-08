@@ -1,3 +1,5 @@
 .DS_Store
 iOS/e-Secmen/e-Secmen.xcodeproj/project.xcworkspace
 iOS/e-Secmen/e-Secmen.xcodeproj/xcuserdata
+Android/e-Secmen/bin/
+Android/e-Secmen/gen/
