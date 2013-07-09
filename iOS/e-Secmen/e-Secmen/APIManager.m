@@ -160,49 +160,16 @@ static APIManager *sharedInstance = nil;
 
 #pragma mark - Voters
 
-- (MKNetworkOperation *)loginWithUsername:(NSString *)username
-                              andPassword:(NSString *)password
-                             onCompletion:(LoginBlock)loginBlock
-                                  onError:(ErrorBlock)errorBlock {
-    if ([username characterAtIndex:0] == '0') {
-        username = [username substringFromIndex:1];
-    }
-    
-    return [self createNetworkOperationForOperation:@"ESANDIK_Login"
-                                      andParameters:@{@"telNo_TCKN" : username,
-                                                      @"Sifre" : password  }
-                                       onCompletion:^(NSDictionary *responseDictionary) {
-                                           if ([responseDictionary[@"result"][@"LoginDurumu"] boolValue] == true) {
-                                               loginBlock([responseDictionary[@"result"][@"TCKN"] stringValue]);
-                                           } else {
-                                               errorBlock([NSError errorWithDomain:@"LoginError"
-                                                                              code:-110
-                                                                          userInfo:@{NSLocalizedDescriptionKey : @"Hatalı kullanıcı adı veya şifre girdiniz. Lütfen tekrar deneyin."}]);
-                                           }
-                                       }
-                                            onError:^(NSError *error) {
-                                                errorBlock(error);
-                                            }];
-}
-
 - (MKNetworkOperation *)getVoterWithTckNo:(NSString *)tckNo
-                                 username:(NSString*)username
-                              andPassword:(NSString *)password
                              onCompletion:(VoterBlock)completionBlock
                                   onError:(ErrorBlock)errorBlock {
-
-    if ([username characterAtIndex:0] == '0') {
-        username = [username substringFromIndex:1];
-    }
     
     if (tckNo == nil || [tckNo isEqualToString:@""]) {
         tckNo = @"00000000000";
     }
     
-    return [self createNetworkOperationForOperation:@"SandikYeriSorgula_v2"
-                                      andParameters:@{@"telNo_TCKN" : username,
-                                                           @"Sifre" : password,
-                                                            @"tckn" : tckNo}
+    return [self createNetworkOperationForOperation:@"ESECMEN_Login"
+                                      andParameters:@{@"tckn" : tckNo}
                                        onCompletion:^(NSDictionary *responseDictionary) {
                                            if([[responseDictionary valueForKey:@"HataKodu"] integerValue] == 1){
                                                NSError *apiError = [NSError errorWithDomain:@"APIError"
@@ -210,14 +177,9 @@ static APIManager *sharedInstance = nil;
                                                                                    userInfo:@{NSLocalizedDescriptionKey : responseDictionary[@"HataAciklamasi"]}];
                                                errorBlock(apiError);
                                            }
-                                           else if ([responseDictionary[@"result"][@"LoginDurumu"] boolValue] == true) {
+                                           else {
                                                completionBlock([Voter voterFromDictionary:responseDictionary[@"result"]]);
-                                           } else {
-                                               errorBlock([NSError errorWithDomain:@"LoginError"
-                                                                              code:-110
-                                                                          userInfo:@{NSLocalizedDescriptionKey : @"Hatalı kullanıcı adı veya şifre girdiniz. Lütfen tekrar deneyin."}]);
                                            }
-
                                        }
                                             onError:^(NSError *error) {
                                                 if (error.domain == NSURLErrorDomain && error.code == -1009) {

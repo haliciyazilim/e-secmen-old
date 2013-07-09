@@ -51,6 +51,12 @@
                                     <action selector="performQuery:" destination="wj7-vd-WM4" eventType="touchUpInside" id="qak-Qh-bAG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" text="CHP Bilgi ve İletişim Teknolojileri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1OB-3a-EPn">
+                                <rect key="frame" x="25" y="507" width="271" height="21"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -58,19 +64,259 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="tckNoTextField" destination="Ymr-wr-oCB" id="XKl-MS-m69"/>
+                        <segue destination="HM2-qU-u5V" kind="push" identifier="ShowQueryResult" id="MTx-FQ-2Ok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOa-EV-u5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="314" y="-20"/>
         </scene>
+        <!--Secmen Tab Bar View Controller-->
+        <scene sceneID="d4O-vH-SFC">
+            <objects>
+                <tabBarController id="HM2-qU-u5V" customClass="SecmenTabBarViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Aqe-Fl-e5G"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="kOu-8T-nqb">
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jFT-VY-wtE" kind="relationship" relationship="viewControllers" id="pGh-cH-bTi"/>
+                        <segue destination="H5H-Iq-J1y" kind="relationship" relationship="viewControllers" id="Pgj-C9-qhF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Izb-OP-hYT" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784" y="-20"/>
+        </scene>
+        <!--Secmen Kunye View Controller - Künye-->
+        <scene sceneID="9G2-zE-HZz">
+            <objects>
+                <tableViewController id="jFT-VY-wtE" customClass="SecmenKunyeViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="5e5-XY-PN2">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <label key="tableHeaderView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t0J-gc-W9i">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="15"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <sections>
+                            <tableViewSection id="JTf-Xx-6md">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="36" id="7ZO-gX-4fg">
+                                        <rect key="frame" x="0.0" y="25" width="320" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="35"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Seçmen Adı Soyadı" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rbh-uR-zUd">
+                                                    <rect key="frame" x="40" y="7" width="240" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                    <color key="textColor" red="0.30196079609999998" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_secmen.png" id="S5H-7l-dCM">
+                                                    <rect key="frame" x="17" y="10" width="15" height="15"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell opaque="NO" alpha="0.0" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="2" id="ytY-hr-GSN">
+                                        <rect key="frame" x="0.0" y="62" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="1"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="3pN-pz-qhY">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bmz-PN-h7H">
+                                                    <rect key="frame" x="20" y="11" width="260" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.92156862750000001" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="ngz-YF-6nf">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="36" id="86g-mK-YLE">
+                                        <rect key="frame" x="0.0" y="129" width="320" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="35"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon_muhtar.png" id="v4I-bk-ny2">
+                                                    <rect key="frame" x="17" y="10" width="15" height="15"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Muhtarlık" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6OU-NU-trB">
+                                                    <rect key="frame" x="40" y="7" width="240" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                    <color key="textColor" red="0.30196079609999998" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="2" id="6Dk-c0-rx6">
+                                        <rect key="frame" x="0.0" y="166" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="1"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="78" id="iyS-GQ-tdv">
+                                        <rect key="frame" x="0.0" y="168" width="320" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="300" height="77"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gCd-0a-d5d">
+                                                    <rect key="frame" x="20" y="11" width="260" height="55"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.92156862750000001" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="jFT-VY-wtE" id="YKT-Jr-bPo"/>
+                            <outlet property="delegate" destination="jFT-VY-wtE" id="ccB-Io-jQ0"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Künye" image="icon_voter.png" id="9Ry-mT-Mf9"/>
+                    <navigationItem key="navigationItem" id="aqZ-3F-OO8"/>
+                    <connections>
+                        <outlet property="detailNameCell" destination="3pN-pz-qhY" id="LTx-nj-9rd"/>
+                        <outlet property="detailProvinceCell" destination="iyS-GQ-tdv" id="b1Z-an-afQ"/>
+                        <outlet property="firstEmptyRow" destination="ytY-hr-GSN" id="HsL-MM-Bj1"/>
+                        <outlet property="nameCell" destination="7ZO-gX-4fg" id="mB0-3n-JIu"/>
+                        <outlet property="nameLabel" destination="Bmz-PN-h7H" id="gmE-By-vf1"/>
+                        <outlet property="provinceCell" destination="86g-mK-YLE" id="4ke-St-hjn"/>
+                        <outlet property="provinceLabel" destination="gCd-0a-d5d" id="TDw-1z-4d4"/>
+                        <outlet property="secondEmptyRow" destination="6Dk-c0-rx6" id="E3F-0i-iGh"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Gy-qf-MtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1200" y="-332"/>
+        </scene>
+        <!--Secmen Bina Bilgisi View Controller - Bina Bilgisi-->
+        <scene sceneID="37m-A3-Dgk">
+            <objects>
+                <tableViewController id="H5H-Iq-J1y" customClass="SecmenBinaBilgisiViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="53" sectionHeaderHeight="22" sectionFooterHeight="22" id="kfU-QX-ALv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleAspectFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="NeighbourCell" rowHeight="54" id="7YU-NN-BDa">
+                                <rect key="frame" x="0.0" y="22" width="320" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="seperator.png" id="YCZ-Wm-d3N">
+                                            <rect key="frame" x="0.0" y="52" width="320" height="1"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bina_numara.png" id="8C9-Qh-Pnp">
+                                            <rect key="frame" x="250" y="10" width="50" height="32"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ax8-FY-1TL">
+                                            <rect key="frame" x="20" y="16" width="210" height="21"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="biC-b0-1li">
+                                            <rect key="frame" x="254" y="16" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="14"/>
+                                            <color key="textColor" red="0.30196079609999998" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="H5H-Iq-J1y" id="xIc-bq-EKO"/>
+                            <outlet property="delegate" destination="H5H-Iq-J1y" id="RoS-zP-YdF"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Bina Bilgisi" image="icon_voterlist.png" id="CWP-x5-mM0"/>
+                    <navigationItem key="navigationItem" id="EtG-fn-Dtw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRY-CV-hif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DQO-KS-rLY">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </objects>
+            <point key="canvasLocation" x="1200" y="365"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bina_numara.png" width="50" height="32"/>
+        <image name="icon_muhtar.png" width="15" height="15"/>
+        <image name="icon_secmen.png" width="15" height="15"/>
+        <image name="icon_voter.png" width="31" height="24"/>
+        <image name="icon_voterlist.png" width="31" height="24"/>
         <image name="main_btn_hover.png" width="176" height="34"/>
         <image name="main_btn_normal.png" width="176" height="34"/>
+        <image name="seperator.png" width="320" height="1"/>
         <image name="tcinput_bg.png" width="262" height="45"/>
     </resources>
     <classes>
+        <class className="SecmenBinaBilgisiViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecmenBinaBilgisiViewController.h"/>
+        </class>
+        <class className="SecmenKunyeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecmenKunyeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailNameCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="detailProvinceCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="firstEmptyRow" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="nameCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="provinceCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="provinceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondEmptyRow" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
         <class className="SecmenNavigationViewController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SecmenNavigationViewController.h"/>
         </class>
@@ -80,6 +326,9 @@
                 <relationship kind="action" name="performQuery:"/>
                 <relationship kind="outlet" name="tckNoTextField" candidateClass="UITextField"/>
             </relationships>
+        </class>
+        <class className="SecmenTabBarViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SecmenTabBarViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
