@@ -11,6 +11,7 @@
 @interface SecmenSorguViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *tckNoTextField;
+@property (weak, nonatomic) IBOutlet UITextField *fatherNameField;
 @property (nonatomic, strong) UIAlertView* loadingAlert;
 
 - (IBAction)performQuery:(id)sender;

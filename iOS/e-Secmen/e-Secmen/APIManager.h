@@ -23,6 +23,7 @@ typedef void (^VoterBlock) (Voter *voter);
 + (APIManager *)sharedInstance;
 
 - (MKNetworkOperation *)getVoterWithTckNo:(NSString *)tckNo
+                            andFatherName:(NSString *)fatherName
                              onCompletion:(VoterBlock)completionBlock
                                   onError:(ErrorBlock)errorBlock;
 

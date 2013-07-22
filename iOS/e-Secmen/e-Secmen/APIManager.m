@@ -161,6 +161,7 @@ static APIManager *sharedInstance = nil;
 #pragma mark - Voters
 
 - (MKNetworkOperation *)getVoterWithTckNo:(NSString *)tckNo
+                            andFatherName:(NSString *)fatherName
                              onCompletion:(VoterBlock)completionBlock
                                   onError:(ErrorBlock)errorBlock {
     
@@ -169,7 +170,8 @@ static APIManager *sharedInstance = nil;
     }
     
     return [self createNetworkOperationForOperation:@"ESECMEN_Login"
-                                      andParameters:@{@"tckn" : tckNo}
+                                      andParameters:@{@"tckn" : tckNo,
+                                                        @"babaAdi" : fatherName}
                                        onCompletion:^(NSDictionary *responseDictionary) {
                                            if([[responseDictionary valueForKey:@"HataKodu"] integerValue] == 1){
                                                NSError *apiError = [NSError errorWithDomain:@"APIError"
