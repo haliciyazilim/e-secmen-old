@@ -130,9 +130,7 @@ public class Sonuclar extends FragmentActivity implements TabHost.OnTabChangeLis
         TabInfo tabInfo = null;
         Sonuclar.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab1").setIndicator("Künye", getResources().getDrawable(R.drawable.icon_kisi_bilgisi)), ( tabInfo = new TabInfo("Tab1", SecmenKunye.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        Sonuclar.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab2").setIndicator("Adres Bilgisi",getResources().getDrawable(R.drawable.icon_bina_bilgisi)), ( tabInfo = new TabInfo("Tab2", AdresBilgisi.class, args)));
-        this.mapTabInfo.put(tabInfo.tag, tabInfo);
-        Sonuclar.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab3").setIndicator("Bina Bilgisi",getResources().getDrawable(R.drawable.icon_bina_bilgisi)), ( tabInfo = new TabInfo("Tab3", BinaBilgisi.class, args)));
+        Sonuclar.addTab(this, this.mTabHost, this.mTabHost.newTabSpec("Tab2").setIndicator("Bina Bilgisi",getResources().getDrawable(R.drawable.icon_bina_bilgisi)), ( tabInfo = new TabInfo("Tab2", BinaBilgisi.class, args)));
         this.mapTabInfo.put(tabInfo.tag, tabInfo);
         
         // Default to first tab

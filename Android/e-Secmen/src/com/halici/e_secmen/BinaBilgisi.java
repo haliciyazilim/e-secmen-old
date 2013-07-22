@@ -4,6 +4,8 @@ package com.halici.e_secmen;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.halici.e_secmen.siniflar.ListAdapter;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
+
 
 
 /**
@@ -21,10 +23,10 @@ import android.widget.SimpleAdapter;
 public class BinaBilgisi extends Fragment {
 
 	
-	ArrayList<HashMap<String, String>> binaBilgisi;
+	ArrayList<HashMap<String, String>> binaBilgisi, adresBilgisi, tumListe;
 	
 	View view;
-	ListView liste;
+	ListView listeBina, listeAdres;
 	
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,14 +36,31 @@ public class BinaBilgisi extends Fragment {
         }
 		
 		view=(LinearLayout)inflater.inflate(R.layout.bina_bilgisi_layout, container, false);
-		binaBilgisi=((Sonuclar)getActivity()).binaBilgisi;
-		String[] sutunIsim ={"isim","kapiNo"};
-
-		int[] sutunNo = new int[] {R.id.column1, R.id.column2};
 		
-		liste=(ListView)view.findViewById(R.id.listBina);
-		SimpleAdapter adapter=new SimpleAdapter(getActivity(),binaBilgisi, R.layout.bina_listesi,sutunIsim,sutunNo);
-		liste.setAdapter(adapter);
+		tumListe=new ArrayList<HashMap<String,String>>();
+		
+		HashMap<String,String> adresMap=new HashMap<String, String>();
+		adresMap.put("baslik", "adres");
+		
+		HashMap<String,String> binaMap=new HashMap<String, String>();
+		binaMap.put("baslik", "bina");
+		
+		adresBilgisi=((Sonuclar)getActivity()).adresBilgisi;
+		binaBilgisi=((Sonuclar)getActivity()).binaBilgisi;
+		
+		tumListe.add(adresMap);
+		tumListe.addAll(adresBilgisi);
+		tumListe.add(binaMap);
+		tumListe.addAll(binaBilgisi);
+		
+		String[] sutunIsimBina ={"isim","kapiNo"};
+		int[] sutunNoBina = new int[] {R.id.column1, R.id.column2};
+		
+		listeBina=(ListView)view.findViewById(R.id.listBina);
+		ListAdapter adapterBina=new ListAdapter(getActivity(),tumListe);
+		listeBina.setAdapter(adapterBina);
+		
+		
 		return view;
 	}
 }
