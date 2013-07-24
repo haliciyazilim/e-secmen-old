@@ -36,8 +36,17 @@
                                     <outlet property="delegate" destination="wj7-vd-WM4" id="1UJ-2w-ts5"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Baba Adı Giriniz" textAlignment="center" minimumFontSize="17" background="tcinput_bg.png" clearButtonMode="whileEditing" id="ki9-c7-brp">
+                                <rect key="frame" x="29" y="221" width="262" height="45"/>
+                                <color key="textColor" red="0.37647058820000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wj7-vd-WM4" id="aD9-zR-bRZ"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mTH-Do-ra7">
-                                <rect key="frame" x="72" y="237" width="176" height="34"/>
+                                <rect key="frame" x="72" y="282" width="176" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <state key="normal" title="Sorgula" backgroundImage="main_btn_normal.png">
                                     <color key="titleColor" red="0.2784313725" green="0.15686274510000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,6 +72,7 @@
                     <navigationItem key="navigationItem" id="csh-iq-Rb4"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="fatherNameField" destination="ki9-c7-brp" id="i4V-l6-Jfc"/>
                         <outlet property="tckNoTextField" destination="Ymr-wr-oCB" id="XKl-MS-m69"/>
                         <segue destination="HM2-qU-u5V" kind="push" identifier="ShowQueryResult" id="MTx-FQ-2Ok"/>
                     </connections>
@@ -324,6 +334,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SecmenSorguViewController.h"/>
             <relationships>
                 <relationship kind="action" name="performQuery:"/>
+                <relationship kind="outlet" name="fatherNameField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tckNoTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
