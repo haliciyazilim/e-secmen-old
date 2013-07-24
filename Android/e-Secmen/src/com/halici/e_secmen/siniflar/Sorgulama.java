@@ -9,10 +9,11 @@ import org.ksoap2.transport.HttpTransportSE;
 import android.util.Log;
 
 public class Sorgulama {
-	String tckn;
+	String tckn,babaAdi;
 
-	public Sorgulama(String tckn) {
+	public Sorgulama(String tckn,String babaAdi) {
 		this.tckn=tckn;
+		this.babaAdi=babaAdi;
 	}
 
 	// webServisin yeri
@@ -35,6 +36,7 @@ public class Sorgulama {
 		
 		// requeste bilgi ekleniyor.
 		request.addProperty("tckn", this.tckn);
+		request.addProperty("babaAdi", this.babaAdi);
 					
 		//Web servisin versiyonunu bildiriyoruz.
 		SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);

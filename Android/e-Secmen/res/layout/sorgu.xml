@@ -16,41 +16,52 @@
         android:text="@string/chpAciklama"
         android:textColor="@color/beyaz_opacity" />
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:gravity="center_horizontal" >
-        
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
         <EditText
             android:id="@+id/editSorgu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="false"
-            android:layout_below="@+id/editSifre"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/input_bg"
             android:ems="10"
-            android:gravity="center"
+            android:ellipsize="end"
+          	android:gravity="center"
             android:hint="@string/sorguHint"
             android:inputType="number"
             android:singleLine="true"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:width="300dp" />
-        
-         <Button
+
+        <EditText
+            android:id="@+id/editBabaAdi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:ems="10"
+          	android:ellipsize="end"
+          	android:gravity="center" 
+            android:hint="@string/babaAdiHint"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:width="300dp" />
+
+        <Button
             android:id="@+id/btnSorgula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editSorgu"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/sorgula_butonu"
             android:text="@string/sorgula"
-            android:textSize="16dp" />
-        
-    </RelativeLayout>
+            android:textSize="16sp" />
+    </LinearLayout>
 
 </RelativeLayout>
