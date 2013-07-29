@@ -36,6 +36,9 @@ public class Sorgu extends Activity {
 		FilterArray[0] = new InputFilter.LengthFilter(11);
 		editSorgu.setFilters(FilterArray);
 		
+		final EditText editBabaAdi=(EditText)findViewById(R.id.editBabaAdi);
+		
+		
 		Button btnSorgu=(Button) findViewById(R.id.btnSorgula);
         
         btnSorgu.setOnClickListener(new View.OnClickListener() {
@@ -49,14 +52,17 @@ public class Sorgu extends Activity {
 					kimlikNoHaneUyarisi();
 					editSorgu.setText("");
 				}
+				else if(editBabaAdi.getText().length()==0){
+					babaAdiUyarisi();
+				}
 				else{
 					
 					String tckn=editSorgu.getText().toString();
-					
+					String babaAdi=editBabaAdi.getText().toString();
 					boolean baglanti=new BaglantiKontrolu(Sorgu.this).kontrolEt();
 					
 					if(baglanti==true){
-						new Servis().execute(tckn);
+						new Servis().execute(tckn,babaAdi);
 					}
 					else if(baglanti==false){
 						Toast.makeText(getApplicationContext(), "İnternet bağlantınız ile ilgili bir sorun var; lütfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
@@ -73,7 +79,9 @@ public class Sorgu extends Activity {
 	public void kimlikNoYokUyarisi(){
     	Toast.makeText(getApplicationContext(), "Lütfen Kimlik Numaranızı Giriniz.",  Toast.LENGTH_LONG).show();
     }
-	
+	public void babaAdiUyarisi(){
+    	Toast.makeText(getApplicationContext(), "Lütfen Baba Adınızı Giriniz.",  Toast.LENGTH_LONG).show();
+    }
 	
 	
 	@Override
@@ -82,14 +90,13 @@ public class Sorgu extends Activity {
 		
 	}
 
-
-
 	public class Servis extends AsyncTask<String, Void, String>{
 		private ProgressDialog dialog = new ProgressDialog(Sorgu.this);
 		 EditText editSorgu=(EditText) findViewById(R.id.editSorgu);
+		 EditText editBabaAdi=(EditText) findViewById(R.id.editBabaAdi);
 		@Override
 		protected String doInBackground(String... params) {
-			Sorgulama sorgu=new Sorgulama(params[0]);
+			Sorgulama sorgu=new Sorgulama(params[0],params[1]);
 			String sonuc=sorgu.bilgileriAl();
 			
 			System.out.println("Sonuclar sonuc: "+sonuc);
@@ -132,6 +139,7 @@ public class Sorgu extends Activity {
 						.setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
 							editSorgu.setText("");
+							editBabaAdi.setText("");
 					   }
 					}).show();
 						
@@ -146,6 +154,7 @@ public class Sorgu extends Activity {
 				intent.putExtra("adresBilgisi", ayniAdrestekiler);
 				startActivity(intent);
 				editSorgu.setText("");
+				editBabaAdi.setText("");
 			}
 		}
 

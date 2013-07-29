@@ -48,6 +48,7 @@ public class KisiBilgileri {
 //			map.put("secimYili", json.getString(secimYili));			
 		} catch (JSONException e) {
 			e.printStackTrace();
+			return null;
 		}
 		
 		return map;

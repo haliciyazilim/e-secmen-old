@@ -79,8 +79,8 @@ public class ListAdapter extends BaseAdapter {
             	isimView.setText(getItem(position).get("isim"));
             	kapiView.setText(getItem(position).get("kapiNo"));
             	
-            	if(isAdres)
-            		((LinearLayout)kapiView.getParent()).removeView(kapiView);
+            	/*if(isAdres)
+            		((LinearLayout)kapiView.getParent()).removeView(kapiView);*/
             }        	
         }
 

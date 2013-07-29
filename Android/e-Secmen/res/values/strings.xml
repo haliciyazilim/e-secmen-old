@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">e-Secmen</string>
+    <string name="app_name">e-Seçmen</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="sorguHint">Lütfen Kimlik Numaranızı Giriniz.</string>
@@ -9,6 +9,7 @@
     <string name="sifreHint">Lütfen Şifrenizi Giriniz.</string>
     <string name="sorgula">Sorgula</string>
     <string name="chpAciklama">CHP Bilgi ve İletişim Teknolojileri</string>
+    <string name="babaAdiHint">Lütfen Baba Adınızı Giriniz.</string>
     
 
 </resources>
