@@ -112,7 +112,7 @@
     
     UIFont* font = [UIFont fontWithName:@"Futura-Medium" size:13];
     
-    NSString* infoString1 = [NSString stringWithFormat:@"Bilgiler %@ listesinin bilgileridir, herhangi bir yanlislik oldugunu dusunuyorsaniz lutfen il ya da ilce nufus mudurlugunuze basvurunuz.", listDate];
+    NSString* infoString1 = [NSString stringWithFormat:@"%@ Seçmen Kütüğü Bilgileri Kullanılmaktadır! Eğer bu verilerde bir hata olduğunu düşünüyorsanız oturmakta olduğunuz ilçenin İLÇE NÜFUS MÜDÜRLÜĞÜ'ne başvurunuz.", listDate];
     
     CGSize labelSize1 = [infoString1 sizeWithFont:font constrainedToSize:CGSizeMake(300.0, 1000.0)];
     
