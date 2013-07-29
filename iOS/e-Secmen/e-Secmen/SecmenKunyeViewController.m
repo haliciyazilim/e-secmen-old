@@ -79,10 +79,6 @@
     
     [self configureViews];
 }
-- (void) configure {
-    self.nameLabel.text = self.voter.name;
-    self.provinceLabel.text = self.voter.province;
-}
 - (void)viewWillAppear:(BOOL)animated {
     
     if(isFirst != 0){
@@ -111,6 +107,30 @@
 - (void)configureViews {
     self.nameLabel.text = self.voter.name;
     self.provinceLabel.text = self.voter.province;
+    
+    NSString* listDate = self.voter.listDate;
+    
+    UIFont* font = [UIFont fontWithName:@"Futura-Medium" size:13];
+    
+    NSString* infoString1 = [NSString stringWithFormat:@"Bilgiler %@ listesinin bilgileridir, herhangi bir yanlislik oldugunu dusunuyorsaniz lutfen il ya da ilce nufus mudurlugunuze basvurunuz.", listDate];
+    
+    CGSize labelSize1 = [infoString1 sizeWithFont:font constrainedToSize:CGSizeMake(300.0, 1000.0)];
+    
+    if (listDate != nil && ![listDate isEqualToString:@""]) {
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 10.0, 320.0, labelSize1.height+10.0)];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 300.0, labelSize1.height)];
+        [headerLabel setBackgroundColor:[UIColor clearColor]];
+        [headerLabel setTextColor:[UIColor whiteColor]];
+        [headerLabel setFont:font];
+        [headerLabel setAdjustsFontSizeToFitWidth:NO];
+        [headerLabel setNumberOfLines:0];
+        [headerLabel setTextAlignment:NSTextAlignmentCenter];
+        [headerLabel setText:infoString1];
+        [headerView addSubview:headerLabel];
+        
+        self.tableView.tableHeaderView = headerView;
+    }
+
 }
 - (void)setIsFirst {
     isFirst = 0;

@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString* district;
 @property (nonatomic, strong) NSArray* fellowsInBuilding;
 @property (nonatomic, strong) NSArray* fellowsInHouse;
-@property (nonatomic, strong) NSString *electionYear;
+@property (nonatomic, strong) NSString *listDate;
 
 + (id) voterFromDictionary:(NSDictionary *)aDictionary;
 

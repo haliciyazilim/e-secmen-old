@@ -268,8 +268,19 @@
         [scrollView addSubview:twitterButton];
         [scrollView addSubview:facebookButton];
         
+        UIView* shadowView = [[UIView alloc] initWithFrame:scrollView.frame];
+        [shadowView setBackgroundColor:[UIColor clearColor]];
+        [shadowView setClipsToBounds:NO];
+        
+        [shadowView.layer setShadowColor:[[UIColor blackColor] CGColor]];
+        [shadowView.layer setShadowOffset:CGSizeMake(0.0, 0.0)];
+        [shadowView.layer setShadowRadius:10.0];
+        [shadowView.layer setShadowOpacity:1.0];
+        [shadowView.layer setShadowPath:[[UIBezierPath bezierPathWithRect:CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height)] CGPath]];
+        
         infoView = [[UIView alloc] initWithFrame:self.view.frame];
         [infoView setBackgroundColor:[UIColor clearColor]];
+        [infoView addSubview:shadowView];
         [infoView addSubview:scrollView];
         [infoView addSubview:closeButton];
         

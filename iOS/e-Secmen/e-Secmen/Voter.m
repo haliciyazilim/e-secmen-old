@@ -63,6 +63,8 @@
         
         _fellowsInHouse = fellowsInHome;
         
+        _listDate = [aDictionary objectForKey:@"ListeBilgisi"];
+        
         return self;
     }
     
