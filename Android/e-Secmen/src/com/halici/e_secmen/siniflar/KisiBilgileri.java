@@ -23,7 +23,7 @@ public class KisiBilgileri {
 	private static String loginDurumu="LoginDurumu";
 
 	private static String eskiListe="EskiListe";
-	private static String secimYili="SecimYili";
+	private static String listeBilgisi="ListeBilgisi";
 	
 	public KisiBilgileri(String gelenVeri) {
 		super();
@@ -45,7 +45,7 @@ public class KisiBilgileri {
 			map.put("mahalle", kisiBilgileri.getString(mahalle));
 
 //			map.put("eskiListe", json.getString(eskiListe));
-//			map.put("secimYili", json.getString(secimYili));			
+			map.put("listeBilgisi", json.getString(listeBilgisi));			
 		} catch (JSONException e) {
 			e.printStackTrace();
 			return null;

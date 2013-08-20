@@ -32,7 +32,7 @@ public class Sonuclar extends FragmentActivity implements TabHost.OnTabChangeLis
 	private HashMap mapTabInfo = new HashMap();
 	private TabInfo mLastTab = null;
 	
-	public String secimYili, eskiListe,kunye, tckn, isim, muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi;
+	public String secimYili, listeBilgisi,kunye, tckn, isim, muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi;
 	public ArrayList<HashMap<String, String>> binaBilgisi;
 	public ArrayList<HashMap<String, String>> adresBilgisi;
 
@@ -93,8 +93,8 @@ public class Sonuclar extends FragmentActivity implements TabHost.OnTabChangeLis
 		sandikNumarasi=kunyeBilgisi[3];
 		sandikSirasi=kunyeBilgisi[4];
 		secimYili=kunyeBilgisi[5]==null?"":kunyeBilgisi[5];
-		eskiListe=kunyeBilgisi[6]==null?"":kunyeBilgisi[6];
-		
+		listeBilgisi=getIntent().getStringExtra("listeBilgisi");
+		System.out.println("Liste bilgisi: "+listeBilgisi);
 		// Aynı Binadakilerin Bilgisi
 		binaBilgisi=(ArrayList<HashMap<String, String>>)getIntent().getSerializableExtra("binaBilgisi");
 		
