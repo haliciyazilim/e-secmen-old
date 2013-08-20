@@ -66,7 +66,31 @@
     // Return the number of sections.
     return 2;
 }
-
+- (void) viewDidAppear:(BOOL)animated
+{
+    NSString* listDate = self.voter.listDate;
+    
+    UIFont* font = [UIFont fontWithName:@"Futura-Medium" size:13];
+    
+    NSString* infoString1 = [NSString stringWithFormat:@"%@ seçmen kütüğü bilgileri kullanılmaktadır. Eğer bu verilerde bir hata olduğunu düşünüyorsanız oturmakta olduğunuz ilçenin İLÇE NÜFUS MÜDÜRLÜĞÜ'ne başvurunuz.", listDate];
+    
+    CGSize labelSize1 = [infoString1 sizeWithFont:font constrainedToSize:CGSizeMake(300.0, 1000.0)];
+    
+    if (listDate != nil && ![listDate isEqualToString:@""]) {
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 10.0, 320.0, labelSize1.height+10.0)];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 300.0, labelSize1.height)];
+        [headerLabel setBackgroundColor:[UIColor clearColor]];
+        [headerLabel setTextColor:[UIColor whiteColor]];
+        [headerLabel setFont:font];
+        [headerLabel setAdjustsFontSizeToFitWidth:NO];
+        [headerLabel setNumberOfLines:0];
+        [headerLabel setTextAlignment:NSTextAlignmentCenter];
+        [headerLabel setText:infoString1];
+        [headerView addSubview:headerLabel];
+        
+        self.tableView.tableHeaderView = headerView;
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -109,8 +133,6 @@
     
     [self.tableView reloadData];
 }
-
-
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
