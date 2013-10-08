@@ -491,7 +491,7 @@
     }
 }
 -(void)dismissLoadingView {
-    [self.loadingAlert dismissWithClickedButtonIndex:-1 animated:YES];
+    [self.loadingAlert dismissWithClickedButtonIndex:0 animated:YES];
 }
 - (void)viewDidUnload {
     [self setTckNoTextField:nil];
