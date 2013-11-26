@@ -124,76 +124,85 @@ public class Sorgu extends Activity {
 		protected void onPostExecute(String string) {
 			dialog.dismiss();
 			try{
-			
-			KisiBilgileri bilgiler=new KisiBilgileri(string);
-			HashMap<String, String> kisiBilgisi=bilgiler.veriAl();
-				
-			AyniBinadakiler bilgiler2=new AyniBinadakiler(string);
-			ArrayList<HashMap<String, String>> binaBilgisi=bilgiler2.veriAl();
-			
-			AyniAdrestekiler bilgiler3=new AyniAdrestekiler(string);
-			ArrayList<HashMap<String, String>> ayniAdrestekiler=bilgiler3.veriAl();
-			
-			
-						
-			if(kisiBilgisi.get("isim")==null){
-					
-				JSONObject hataBilgisi;
-				try {
-					hataBilgisi = new JSONObject(string);
-					new AlertDialog.Builder(Sorgu.this)
-						.setTitle("Bilgi")
-						.setMessage(hataBilgisi.getString("HataAciklamasi").toString())
-						.setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							editSorgu.setText("");
-							editBabaAdi.setText("");
-					   }
-					}).show();
-						
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-			}
-			else{
-				
-				isim=(kisiBilgisi.get("isim"));
-				muhtarlik=(kisiBilgisi.get("il")+" "+kisiBilgisi.get("ilce")+" "+kisiBilgisi.get("mahalle"));
-				sandikAlani=(kisiBilgisi.get("sandikAlani"));
-				sandikNumarasi=(kisiBilgisi.get("sandikNo"));
-				sandikSirasi=(kisiBilgisi.get("sandikSiraNo"));
-					
-				secimYili=(kisiBilgisi.get("secimYili"));
-				eskiListe=(kisiBilgisi.get("eskiListe"));
-				listeBilgisi=kisiBilgisi.get("listeBilgisi");
-				String[] kunye={isim,muhtarlik,sandikAlani,sandikNumarasi, sandikSirasi, secimYili, eskiListe};
-				
-				Intent intent= new Intent(Sorgu.this, Sonuclar.class);
-				intent.putExtra("kunye", kunye);
-				intent.putExtra("binaBilgisi", binaBilgisi);
-				intent.putExtra("adresBilgisi", ayniAdrestekiler);
-				intent.putExtra("listeBilgisi", listeBilgisi);
-				startActivity(intent);
-				editSorgu.setText("");
-				editBabaAdi.setText("");
-			}
-			}
-			catch (Exception e) {
-				try {
-					new AlertDialog.Builder(Sorgu.this)
-						.setTitle("Hata")
-						.setMessage("Sunucu iletişiminde bir hata oluştu; internet erişiminizden emin olun ve terar deneyin.")
-						.setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							editSorgu.setText("");
-							editBabaAdi.setText("");
-					   }
-					}).show();
-						
-				} catch (Exception f) {
-					f.printStackTrace();
-				}
-			}
+
+//                System.out.println("Sorgu onPostExecute: "+string);
+
+                JSONObject hataBilgisi=null;
+
+                try{
+                hataBilgisi = new JSONObject(string);
+                }catch (Exception e){
+
+                }
+
+                if(hataBilgisi!=null && hataBilgisi.optInt("HataKodu")==1){
+
+
+                    try {
+                        hataBilgisi = new JSONObject(string);
+                        new AlertDialog.Builder(Sorgu.this)
+                            .setTitle("Bilgi")
+                            .setMessage(hataBilgisi.getString("HataAciklamasi").toString())
+                            .setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                editSorgu.setText("");
+                                editBabaAdi.setText("");
+                           }
+                        }).show();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else{
+
+                    KisiBilgileri bilgiler=new KisiBilgileri(string);
+                    HashMap<String, String> kisiBilgisi=bilgiler.veriAl();
+
+                    AyniBinadakiler bilgiler2=new AyniBinadakiler(string);
+                    ArrayList<HashMap<String, String>> binaBilgisi=bilgiler2.veriAl();
+
+                    AyniAdrestekiler bilgiler3=new AyniAdrestekiler(string);
+                    ArrayList<HashMap<String, String>> ayniAdrestekiler=bilgiler3.veriAl();
+
+                    isim=(kisiBilgisi.get("isim"));
+                    muhtarlik=(kisiBilgisi.get("il")+" "+kisiBilgisi.get("ilce")+" "+kisiBilgisi.get("mahalle"));
+                    sandikAlani=(kisiBilgisi.get("sandikAlani"));
+                    sandikNumarasi=(kisiBilgisi.get("sandikNo"));
+                    sandikSirasi=(kisiBilgisi.get("sandikSiraNo"));
+
+                    secimYili=(kisiBilgisi.get("secimYili"));
+                    eskiListe=(kisiBilgisi.get("eskiListe"));
+                    listeBilgisi=kisiBilgisi.get("listeBilgisi");
+                    String[] kunye={isim,muhtarlik,sandikAlani,sandikNumarasi, sandikSirasi, secimYili, eskiListe};
+
+                    Intent intent= new Intent(Sorgu.this, Sonuclar.class);
+                    intent.putExtra("kunye", kunye);
+                    intent.putExtra("binaBilgisi", binaBilgisi);
+                    intent.putExtra("adresBilgisi", ayniAdrestekiler);
+                    intent.putExtra("listeBilgisi", listeBilgisi);
+                    startActivity(intent);
+                    editSorgu.setText("");
+                    editBabaAdi.setText("");
+                }
+                }
+                catch (Exception e) {
+                    try {
+                        new AlertDialog.Builder(Sorgu.this)
+                            .setTitle("Hata")
+                            .setMessage("Sunucu iletişiminde bir hata oluştu; internet erişiminizden emin olun ve terar deneyin.")
+                            .setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                editSorgu.setText("");
+                                editBabaAdi.setText("");
+                           }
+                        }).show();
+
+                    } catch (Exception f) {
+                        f.printStackTrace();
+                    }
+                }
+
 		}
 
 		@Override
