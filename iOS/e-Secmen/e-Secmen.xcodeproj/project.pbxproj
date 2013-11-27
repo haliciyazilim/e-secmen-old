@@ -15,6 +15,10 @@
 		050EE2CF17A2B5E500A580FF /* close_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050EE2CB17A2B5E500A580FF /* close_highlighted@2x.png */; };
 		050EE2D017A2B5E500A580FF /* close_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 050EE2CC17A2B5E500A580FF /* close_normal.png */; };
 		050EE2D117A2B5E500A580FF /* close_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 050EE2CD17A2B5E500A580FF /* close_normal@2x.png */; };
+		0511CCB9184618D600741EEE /* icon_okul.png in Resources */ = {isa = PBXBuildFile; fileRef = 0511CCB5184618D600741EEE /* icon_okul.png */; };
+		0511CCBA184618D600741EEE /* icon_okul@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0511CCB6184618D600741EEE /* icon_okul@2x.png */; };
+		0511CCBB184618D600741EEE /* icon_sandik.png in Resources */ = {isa = PBXBuildFile; fileRef = 0511CCB7184618D600741EEE /* icon_sandik.png */; };
+		0511CCBC184618D600741EEE /* icon_sandik@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0511CCB8184618D600741EEE /* icon_sandik@2x.png */; };
 		057155FA178AA20E00C224D4 /* SecmenTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057155F9178AA20E00C224D4 /* SecmenTabBarViewController.m */; };
 		057155FD178AA2E000C224D4 /* SecmenKunyeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057155FC178AA2E000C224D4 /* SecmenKunyeViewController.m */; };
 		05715600178AA2F100C224D4 /* SecmenBinaBilgisiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 057155FF178AA2F100C224D4 /* SecmenBinaBilgisiViewController.m */; };
@@ -99,6 +103,10 @@
 		050EE2CB17A2B5E500A580FF /* close_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_highlighted@2x.png"; sourceTree = "<group>"; };
 		050EE2CC17A2B5E500A580FF /* close_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_normal.png; sourceTree = "<group>"; };
 		050EE2CD17A2B5E500A580FF /* close_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_normal@2x.png"; sourceTree = "<group>"; };
+		0511CCB5184618D600741EEE /* icon_okul.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_okul.png; sourceTree = "<group>"; };
+		0511CCB6184618D600741EEE /* icon_okul@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_okul@2x.png"; sourceTree = "<group>"; };
+		0511CCB7184618D600741EEE /* icon_sandik.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_sandik.png; sourceTree = "<group>"; };
+		0511CCB8184618D600741EEE /* icon_sandik@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_sandik@2x.png"; sourceTree = "<group>"; };
 		057155F8178AA20E00C224D4 /* SecmenTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecmenTabBarViewController.h; sourceTree = "<group>"; };
 		057155F9178AA20E00C224D4 /* SecmenTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecmenTabBarViewController.m; sourceTree = "<group>"; };
 		057155FB178AA2E000C224D4 /* SecmenKunyeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecmenKunyeViewController.h; sourceTree = "<group>"; };
@@ -291,6 +299,10 @@
 		0576CB181787039100482324 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0511CCB5184618D600741EEE /* icon_okul.png */,
+				0511CCB6184618D600741EEE /* icon_okul@2x.png */,
+				0511CCB7184618D600741EEE /* icon_sandik.png */,
+				0511CCB8184618D600741EEE /* icon_sandik@2x.png */,
 				050EE2CA17A2B5E500A580FF /* close_highlighted.png */,
 				050EE2CB17A2B5E500A580FF /* close_highlighted@2x.png */,
 				050EE2CC17A2B5E500A580FF /* close_normal.png */,
@@ -522,6 +534,10 @@
 				050EE2CF17A2B5E500A580FF /* close_highlighted@2x.png in Resources */,
 				050EE2D017A2B5E500A580FF /* close_normal.png in Resources */,
 				050EE2D117A2B5E500A580FF /* close_normal@2x.png in Resources */,
+				0511CCB9184618D600741EEE /* icon_okul.png in Resources */,
+				0511CCBA184618D600741EEE /* icon_okul@2x.png in Resources */,
+				0511CCBB184618D600741EEE /* icon_sandik.png in Resources */,
+				0511CCBC184618D600741EEE /* icon_sandik@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

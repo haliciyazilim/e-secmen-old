@@ -412,8 +412,8 @@
     <resources>
         <image name="bina_numara.png" width="50" height="32"/>
         <image name="icon_muhtar.png" width="15" height="15"/>
-        <image name="icon_okul.png" width="16" height="16"/>
-        <image name="icon_sandik.png" width="16" height="16"/>
+        <image name="icon_okul.png" width="15" height="15"/>
+        <image name="icon_sandik.png" width="15" height="15"/>
         <image name="icon_secmen.png" width="15" height="15"/>
         <image name="icon_voter.png" width="31" height="24"/>
         <image name="icon_voterlist.png" width="31" height="24"/>

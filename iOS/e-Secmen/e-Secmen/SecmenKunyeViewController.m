@@ -46,37 +46,53 @@
     
     UIImageView *myImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg.png"]];
     myImageView.layer.cornerRadius = 6.0;
+    [myImageView.layer setShouldRasterize:YES];
+    [myImageView.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView.clipsToBounds = YES;
     
     UIImageView *myImageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg.png"]];
     myImageView2.layer.cornerRadius = 6.0;
+    [myImageView2.layer setShouldRasterize:YES];
+    [myImageView2.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView2.clipsToBounds = YES;
     
     UIImageView *myImageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg.png"]];
     myImageView3.layer.cornerRadius = 6.0;
+    [myImageView3.layer setShouldRasterize:YES];
+    [myImageView3.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView3.clipsToBounds = YES;
     
     UIImageView *myImageView4 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg.png"]];
     myImageView4.layer.cornerRadius = 6.0;
+    [myImageView4.layer setShouldRasterize:YES];
+    [myImageView4.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView4.clipsToBounds = YES;
     
     UIImageView *myImageView5 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_tile_bg.png"]];
     myImageView5.layer.cornerRadius = 6.0;
+    [myImageView5.layer setShouldRasterize:YES];
+    [myImageView5.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView5.clipsToBounds = YES;
     myImageView5.alpha = 0.3;
     
     UIImageView *myImageView6 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_tile_bg.png"]];
     myImageView6.layer.cornerRadius = 6.0;
+    [myImageView6.layer setShouldRasterize:YES];
+    [myImageView6.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView6.clipsToBounds = YES;
     myImageView6.alpha = 0.3;
     
     UIImageView *myImageView7 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_tile_bg.png"]];
     myImageView7.layer.cornerRadius = 6.0;
+    [myImageView7.layer setShouldRasterize:YES];
+    [myImageView7.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView7.clipsToBounds = YES;
     myImageView7.alpha = 0.3;
     
     UIImageView *myImageView8 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_tile_bg.png"]];
     myImageView8.layer.cornerRadius = 6.0;
+    [myImageView8.layer setShouldRasterize:YES];
+    [myImageView8.layer setRasterizationScale:[UIScreen mainScreen].scale];
     myImageView8.clipsToBounds = YES;
     myImageView8.alpha = 0.3;
 
