@@ -232,7 +232,7 @@
                             android:textColor="@color/beyaz" />
                     </RelativeLayout>
                 </TableRow>
-<!-- 
+
                 <TableRow
                     android:id="@+id/tableRow5"
                     android:layout_width="wrap_content"
@@ -263,7 +263,7 @@
                             android:layout_gravity="center_vertical"
                             android:minWidth="300dp"
                             android:paddingLeft="10dp"
-                            android:text="Okul"
+                            android:text="Sandık Alanı"
                             android:textColor="@color/baslik"
                             android:textSize="18dp"
                             android:textStyle="bold" />
@@ -329,7 +329,7 @@
                             android:layout_gravity="center_vertical"
                             android:minWidth="300dp"
                             android:paddingLeft="10dp"
-                            android:text="Sandık No / Sıra No"
+                            android:text="Sandık No"
                             android:textColor="@color/baslik"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -363,8 +363,7 @@
                             android:textColor="@color/beyaz" />
                     </RelativeLayout>
                 </TableRow>
-                
-                 -->
+
             </TableLayout>
 
     </ScrollView>

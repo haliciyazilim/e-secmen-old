@@ -42,7 +42,7 @@ public class SecmenKunye extends Fragment {
 		kimlikNo=((Sonuclar)getActivity()).tckn;
 		sandikAlani=((Sonuclar)getActivity()).sandikAlani;
 		sandikNumarasi=((Sonuclar)getActivity()).sandikNumarasi;
-		sandikSirasi=((Sonuclar)getActivity()).sandikSirasi;
+		//sandikSirasi=((Sonuclar)getActivity()).sandikSirasi;
 		listeBilgisi=((Sonuclar)getActivity()).listeBilgisi;
 //		System.out.println("Seçmen Künye: "+secimYili+", "+eskiListe);
     
@@ -88,11 +88,11 @@ public class SecmenKunye extends Fragment {
 		
 		txtListeBilgisi=(TextView)view.findViewById(R.id.txtListeBilgisi);
 		txtListeBilgisi.setText(listeBilgisi+"\nSeçmen Kütüğü Bilgileri Kullanılmaktadır.");
-//		txtSandikAlani=(TextView)view.findViewById(R.id.txtSandikAlani);
-//		txtSandikAlani.setText(sandikAlani);
+		txtSandikAlani=(TextView)view.findViewById(R.id.txtSandikAlani);
+		txtSandikAlani.setText(sandikAlani);
 		
-//		txtSandikNo=(TextView)view.findViewById(R.id.txtSandikNumara);
-//		txtSandikNo.setText(sandikNumarasi+" / "+sandikSirasi);
+		txtSandikNo=(TextView)view.findViewById(R.id.txtSandikNumara);
+		txtSandikNo.setText(sandikNumarasi);
 		
 		Button infoButton=(Button)view.findViewById(R.id.infoKimlikBilgisi);
         

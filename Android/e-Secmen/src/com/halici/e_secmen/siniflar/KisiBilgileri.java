@@ -43,6 +43,8 @@ public class KisiBilgileri {
 			map.put("il", kisiBilgileri.getString(il));
 			map.put("ilce", kisiBilgileri.getString(ilce));
 			map.put("mahalle", kisiBilgileri.getString(mahalle));
+            map.put("sandikAlani", kisiBilgileri.getString(sandikAlani));
+            map.put("sandikNo", kisiBilgileri.getString(sandikNo));
 
 //			map.put("eskiListe", json.getString(eskiListe));
 			map.put("listeBilgisi", json.getString(listeBilgisi));			
