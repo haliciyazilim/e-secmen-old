@@ -45,7 +45,15 @@
             android:paddingBottom="8dp"
             android:src="@drawable/baslik_secmenkunyesi" />
 
-       
+       <Button
+            android:id="@+id/infoKimlikBilgisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/icon_info" />
 
     </RelativeLayout>
 
@@ -55,12 +63,6 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/rlBaslikKunye" >
 
-        <LinearLayout
-            android:id="@+id/LinearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
-
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,11 +71,43 @@
                 android:paddingRight="20dp"
                 android:paddingTop="20dp" >
 
+                 <TableRow
+                    android:id="@+id/tableRowListeBilgisi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="2dp" >
+
+                    <RelativeLayout
+                        android:id="@+id/RelaLayListeBilgisi"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/beyaz_opacity"
+                        android:minHeight="30dp" >
+
+                        <TextView
+                            android:id="@+id/txtListeBilgisi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:maxLines="3"
+                            android:minWidth="300dp"
+                            android:paddingLeft="30dp"
+                            android:singleLine="false"
+                            android:text=""
+                            android:textColor="@color/beyaz" />
+
+                    </RelativeLayout>
+                </TableRow>
+                
+                
                 <TableRow
                     android:id="@+id/tableRow1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal" >
+                    android:gravity="center_horizontal"
+                    android:paddingTop="20dp" >
 
                     <LinearLayout
                         android:id="@+id/linLayisim"
@@ -198,7 +232,7 @@
                             android:textColor="@color/beyaz" />
                     </RelativeLayout>
                 </TableRow>
-<!-- 
+
                 <TableRow
                     android:id="@+id/tableRow5"
                     android:layout_width="wrap_content"
@@ -229,7 +263,7 @@
                             android:layout_gravity="center_vertical"
                             android:minWidth="300dp"
                             android:paddingLeft="10dp"
-                            android:text="Okul"
+                            android:text="Sandık Alanı"
                             android:textColor="@color/baslik"
                             android:textSize="18dp"
                             android:textStyle="bold" />
@@ -295,7 +329,7 @@
                             android:layout_gravity="center_vertical"
                             android:minWidth="300dp"
                             android:paddingLeft="10dp"
-                            android:text="Sandık No / Sıra No"
+                            android:text="Sandık No"
                             android:textColor="@color/baslik"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -329,10 +363,9 @@
                             android:textColor="@color/beyaz" />
                     </RelativeLayout>
                 </TableRow>
-                
-                 -->
+
             </TableLayout>
-        </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>

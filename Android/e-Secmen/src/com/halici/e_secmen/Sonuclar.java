@@ -32,7 +32,7 @@ public class Sonuclar extends FragmentActivity implements TabHost.OnTabChangeLis
 	private HashMap mapTabInfo = new HashMap();
 	private TabInfo mLastTab = null;
 	
-	public String secimYili, eskiListe,kunye, tckn, isim, muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi;
+	public String secimYili, listeBilgisi,kunye, tckn, isim, muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi;
 	public ArrayList<HashMap<String, String>> binaBilgisi;
 	public ArrayList<HashMap<String, String>> adresBilgisi;
 
@@ -83,7 +83,8 @@ public class Sonuclar extends FragmentActivity implements TabHost.OnTabChangeLis
 		// Künye Bilgileri
 		String[] kunyeBilgisi=getIntent().getStringArrayExtra("kunye");
 		
-		//System.out.println("Sonu�lar K�nye: "+gelenVeri[0]);
+		for(String s:kunyeBilgisi)
+            System.out.println("Sonuçlar Künye: "+s);
 		
 		//String[] kunye={isim,muhtarlik,sandikAlani,sandikNumarasi, sandikSirasi};
 		
@@ -93,14 +94,15 @@ public class Sonuclar extends FragmentActivity implements TabHost.OnTabChangeLis
 		sandikNumarasi=kunyeBilgisi[3];
 		sandikSirasi=kunyeBilgisi[4];
 		secimYili=kunyeBilgisi[5]==null?"":kunyeBilgisi[5];
-		eskiListe=kunyeBilgisi[6]==null?"":kunyeBilgisi[6];
-		
+		listeBilgisi=getIntent().getStringExtra("listeBilgisi");
+		System.out.println("Liste bilgisi: "+listeBilgisi);
+        System.out.println("Sandık alannı ve numarası: "+ sandikAlani+", "+sandikNumarasi);
 		// Aynı Binadakilerin Bilgisi
 		binaBilgisi=(ArrayList<HashMap<String, String>>)getIntent().getSerializableExtra("binaBilgisi");
 		
 		adresBilgisi=(ArrayList<HashMap<String, String>>)getIntent().getSerializableExtra("adresBilgisi");
 		
-		System.out.println("Sonuclar B�na Bilgisi: "+binaBilgisi.size());
+		System.out.println("Sonuclar Bina Bilgisi: "+binaBilgisi.size());
 		//System.out.println("Sonuclar: "+sandikBilgisi.get(0));
 		
 		// Step 1: Inflate layout
@@ -143,8 +145,6 @@ public class Sonuclar extends FragmentActivity implements TabHost.OnTabChangeLis
 	 * @param activity
 	 * @param tabHost
 	 * @param tabSpec
-	 * @param clss
-	 * @param args
 	 */
 	private static void addTab(Sonuclar activity, TabHost tabHost, TabHost.TabSpec tabSpec, TabInfo tabInfo) {
 		// Attach a Tab view factory to the spec

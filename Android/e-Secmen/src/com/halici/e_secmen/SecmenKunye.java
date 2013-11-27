@@ -1,5 +1,6 @@
 package com.halici.e_secmen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -18,9 +20,9 @@ import android.widget.TextView;
  *
  */
 public class SecmenKunye extends Fragment {
-	TextView secimBilgisi, txtKimlikNo;
+	TextView secimBilgisi, txtKimlikNo, txtListeBilgisi;
 	TextView txtIsim, txtIl, txtIlce, txtMahalle, txtSandikAlani, txtSandikNo, txtSandikSiraNo;
-	String secimYili, eskiListe, kimlikNo, isim,muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi;
+	String secimYili, eskiListe, kimlikNo, isim,muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi, listeBilgisi;
 	View view;
 	
 	Animation animationAsagi;
@@ -32,7 +34,7 @@ public class SecmenKunye extends Fragment {
             return null;
         }
 
-		eskiListe=((Sonuclar)getActivity()).eskiListe;
+//		eskiListe=((Sonuclar)getActivity()).eskiListe;
 		secimYili=((Sonuclar)getActivity()).secimYili;
 		
 		isim=((Sonuclar)getActivity()).isim;
@@ -40,9 +42,9 @@ public class SecmenKunye extends Fragment {
 		kimlikNo=((Sonuclar)getActivity()).tckn;
 		sandikAlani=((Sonuclar)getActivity()).sandikAlani;
 		sandikNumarasi=((Sonuclar)getActivity()).sandikNumarasi;
-		sandikSirasi=((Sonuclar)getActivity()).sandikSirasi;
-		
-		System.out.println("Seçmen Künye: "+secimYili+", "+eskiListe);
+		//sandikSirasi=((Sonuclar)getActivity()).sandikSirasi;
+		listeBilgisi=((Sonuclar)getActivity()).listeBilgisi;
+//		System.out.println("Seçmen Künye: "+secimYili+", "+eskiListe);
     
 		view=(RelativeLayout)inflater.inflate(R.layout.kimlik_bilgileri_layout, container, false);
 		rlSecimBilgisi=(RelativeLayout)view.findViewById(R.id.rlSecimBilgisi);
@@ -84,11 +86,26 @@ public class SecmenKunye extends Fragment {
 		txtMahalle=(TextView)view.findViewById(R.id.txtMuhtarlik);
 		txtMahalle.setText(muhtarlik);
 		
-//		txtSandikAlani=(TextView)view.findViewById(R.id.txtSandikAlani);
-//		txtSandikAlani.setText(sandikAlani);
+		txtListeBilgisi=(TextView)view.findViewById(R.id.txtListeBilgisi);
+		txtListeBilgisi.setText(listeBilgisi+"\nSeçmen Kütüğü Bilgileri Kullanılmaktadır.");
+		txtSandikAlani=(TextView)view.findViewById(R.id.txtSandikAlani);
+		txtSandikAlani.setText(sandikAlani);
 		
-//		txtSandikNo=(TextView)view.findViewById(R.id.txtSandikNumara);
-//		txtSandikNo.setText(sandikNumarasi+" / "+sandikSirasi);
+		txtSandikNo=(TextView)view.findViewById(R.id.txtSandikNumara);
+		txtSandikNo.setText(sandikNumarasi);
+		
+		Button infoButton=(Button)view.findViewById(R.id.infoKimlikBilgisi);
+        
+        infoButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent= new Intent(getActivity(), Info.class);
+				startActivity(intent);
+				
+			}
+		});
+		
 		
 		return view;
 	}

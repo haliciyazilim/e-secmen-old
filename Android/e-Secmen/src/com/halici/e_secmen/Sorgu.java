@@ -24,7 +24,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Sorgu extends Activity {
-	public String secimYili, eskiListe, isim, muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi;
+	public String secimYili, eskiListe, isim, muhtarlik, sandikAlani, sandikNumarasi, sandikSirasi, listeBilgisi;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,19 @@ public class Sorgu extends Activity {
 				}
 			}
 		});
-    }
+        
+        Button infoButton=(Button)findViewById(R.id.infoSorgula);
+        
+        infoButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent= new Intent(Sorgu.this, Info.class);
+				startActivity(intent);
+				
+			}
+		});
+	}
 	
 	public void kimlikNoHaneUyarisi(){
     	Toast.makeText(getApplicationContext(), "Kimlik numaranızı 11 hane olarak giriniz!",  Toast.LENGTH_LONG).show();
@@ -96,66 +108,101 @@ public class Sorgu extends Activity {
 		 EditText editBabaAdi=(EditText) findViewById(R.id.editBabaAdi);
 		@Override
 		protected String doInBackground(String... params) {
-			Sorgulama sorgu=new Sorgulama(params[0],params[1]);
-			String sonuc=sorgu.bilgileriAl();
-			
-			System.out.println("Sonuclar sonuc: "+sonuc);
+			String sonuc="";
+			try{
+				Sorgulama sorgu=new Sorgulama(params[0],params[1]);
+				sonuc=sorgu.bilgileriAl();
+			}
+			catch (Exception e) {
+
+			}
+
 			return sonuc;
 		}
 
 		@Override
 		protected void onPostExecute(String string) {
 			dialog.dismiss();
-			
-			
-			KisiBilgileri bilgiler=new KisiBilgileri(string);
-			HashMap<String, String> kisiBilgisi=bilgiler.veriAl();
-				
-			AyniBinadakiler bilgiler2=new AyniBinadakiler(string);
-			ArrayList<HashMap<String, String>> binaBilgisi=bilgiler2.veriAl();
-			
-			AyniAdrestekiler bilgiler3=new AyniAdrestekiler(string);
-			ArrayList<HashMap<String, String>> ayniAdrestekiler=bilgiler3.veriAl();
-			
-			isim=(kisiBilgisi.get("isim"));
-			muhtarlik=(kisiBilgisi.get("il")+" "+kisiBilgisi.get("ilce")+" "+kisiBilgisi.get("mahalle"));
-			sandikAlani=(kisiBilgisi.get("sandikAlani"));
-			sandikNumarasi=(kisiBilgisi.get("sandikNo"));
-			sandikSirasi=(kisiBilgisi.get("sandikSiraNo"));
-				
-			secimYili=(kisiBilgisi.get("secimYili"));
-			eskiListe=(kisiBilgisi.get("eskiListe"));
-				
-			String[] kunye={isim,muhtarlik,sandikAlani,sandikNumarasi, sandikSirasi, secimYili, eskiListe};
-						
-			if(kisiBilgisi.get("isim")==null){
-					
-				JSONObject hataBilgisi;
-				try {
-					hataBilgisi = new JSONObject(string);
-					new AlertDialog.Builder(Sorgu.this)
-						.setTitle("Bilgi")
-						.setMessage(hataBilgisi.getString("HataAciklamasi").toString())
-						.setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							editSorgu.setText("");
-							editBabaAdi.setText("");
-					   }
-					}).show();
-						
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-			}
-			else{
-				Intent intent= new Intent(Sorgu.this, Sonuclar.class);
-				intent.putExtra("kunye", kunye);
-				intent.putExtra("binaBilgisi", binaBilgisi);
-				intent.putExtra("adresBilgisi", ayniAdrestekiler);
-				startActivity(intent);
-				editSorgu.setText("");
-				editBabaAdi.setText("");
-			}
+			try{
+
+//                System.out.println("Sorgu onPostExecute: "+string);
+
+                JSONObject hataBilgisi=null;
+
+                try{
+                hataBilgisi = new JSONObject(string);
+                }catch (Exception e){
+
+                }
+
+                if(hataBilgisi!=null && hataBilgisi.optInt("HataKodu")==1){
+
+
+                    try {
+                        hataBilgisi = new JSONObject(string);
+                        new AlertDialog.Builder(Sorgu.this)
+                            .setTitle("Bilgi")
+                            .setMessage(hataBilgisi.getString("HataAciklamasi").toString())
+                            .setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                editSorgu.setText("");
+                                editBabaAdi.setText("");
+                           }
+                        }).show();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else{
+
+                    KisiBilgileri bilgiler=new KisiBilgileri(string);
+                    HashMap<String, String> kisiBilgisi=bilgiler.veriAl();
+
+                    AyniBinadakiler bilgiler2=new AyniBinadakiler(string);
+                    ArrayList<HashMap<String, String>> binaBilgisi=bilgiler2.veriAl();
+
+                    AyniAdrestekiler bilgiler3=new AyniAdrestekiler(string);
+                    ArrayList<HashMap<String, String>> ayniAdrestekiler=bilgiler3.veriAl();
+
+                    isim=(kisiBilgisi.get("isim"));
+                    muhtarlik=(kisiBilgisi.get("il")+" "+kisiBilgisi.get("ilce")+" "+kisiBilgisi.get("mahalle"));
+                    sandikAlani=(kisiBilgisi.get("sandikAlani"));
+                    sandikNumarasi=(kisiBilgisi.get("sandikNo"));
+                    sandikSirasi=(kisiBilgisi.get("sandikSiraNo"));
+
+                    secimYili=(kisiBilgisi.get("secimYili"));
+                    eskiListe=(kisiBilgisi.get("eskiListe"));
+                    listeBilgisi=kisiBilgisi.get("listeBilgisi");
+                    String[] kunye={isim,muhtarlik,sandikAlani,sandikNumarasi, sandikSirasi, secimYili, eskiListe};
+
+                    Intent intent= new Intent(Sorgu.this, Sonuclar.class);
+                    intent.putExtra("kunye", kunye);
+                    intent.putExtra("binaBilgisi", binaBilgisi);
+                    intent.putExtra("adresBilgisi", ayniAdrestekiler);
+                    intent.putExtra("listeBilgisi", listeBilgisi);
+                    startActivity(intent);
+                    editSorgu.setText("");
+                    editBabaAdi.setText("");
+                }
+                }
+                catch (Exception e) {
+                    try {
+                        new AlertDialog.Builder(Sorgu.this)
+                            .setTitle("Hata")
+                            .setMessage("Sunucu iletişiminde bir hata oluştu; internet erişiminizden emin olun ve terar deneyin.")
+                            .setNeutralButton("Tamam",  new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                editSorgu.setText("");
+                                editBabaAdi.setText("");
+                           }
+                        }).show();
+
+                    } catch (Exception f) {
+                        f.printStackTrace();
+                    }
+                }
+
 		}
 
 		@Override
