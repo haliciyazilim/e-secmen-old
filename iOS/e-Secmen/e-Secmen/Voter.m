@@ -24,6 +24,8 @@
         
         _name = [kunyeDictionary objectForKey:@"AdSoyad"];
         _province = [NSString stringWithFormat:@"%@ %@ %@", [kunyeDictionary objectForKey:@"Il"], [kunyeDictionary objectForKey:@"Ilce"], [kunyeDictionary objectForKey:@"Muhtarlik"]];
+        _school = [kunyeDictionary objectForKey:@"SandikAlani"];
+        _chest = [kunyeDictionary objectForKey:@"SandikNo"];
         
         NSMutableArray *fellowsInBuildingArray = [NSMutableArray array];
         

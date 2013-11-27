@@ -438,6 +438,11 @@
 				CLASSPREFIX = Secmen;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = halici;
+				TargetAttributes = {
+					0576CAF11786FBF100482324 = {
+						DevelopmentTeam = 34NB4E9B4B;
+					};
+				};
 			};
 			buildConfigurationList = 0576CAED1786FBF100482324 /* Build configuration list for PBXProject "e-Secmen" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -629,12 +634,17 @@
 		0576CB161786FBF100482324 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "e-Secmen/e-Secmen-Prefix.pch";
 				INFOPLIST_FILE = "e-Secmen/e-Secmen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -642,12 +652,17 @@
 		0576CB171786FBF100482324 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "e-Secmen/e-Secmen-Prefix.pch";
 				INFOPLIST_FILE = "e-Secmen/e-Secmen-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos6.1;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
