@@ -14,8 +14,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-//    sleep(3);
     
     if([[UIScreen mainScreen] bounds].size.height == 568){
         _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mainbg-568h.png"]];
@@ -24,31 +22,8 @@
         _window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"mainbg.png"]];
     }
     
-    NSString* string = [[NSUserDefaults standardUserDefaults] objectForKey:@"isUpdateMade"];
-    
-    if (string == nil || [string isEqualToString:@"NO"]) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Bilgilendirme" message:@"Yüksek Seçim Kurulu’nun verdiği karar uyarınca uygulama parti görevlileri dışında kullanıma kapatılmıştır!" delegate:self cancelButtonTitle:@"Tamam" otherButtonTitles:nil];
-        [alertView show];
-        
-        alertView.delegate = self;
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"isUpdateMade"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    
     return YES;
 }
-
-//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    if (buttonIndex != alertView.cancelButtonIndex){
-//        // open app store
-//        NSString* url = @"itms-apps://itunes.apple.com/app/e-secmen/id670241191";
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-//        
-//    } else {
-//    }
-//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
