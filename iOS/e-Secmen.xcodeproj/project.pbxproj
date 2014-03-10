@@ -511,6 +511,11 @@
 				CLASSPREFIX = Sandik;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Halıcı";
+				TargetAttributes = {
+					0543E827164BB72D00255154 = {
+						DevelopmentTeam = Y89A3S87KH;
+					};
+				};
 			};
 			buildConfigurationList = 0543E822164BB72D00255154 /* Build configuration list for PBXProject "e-Secmen" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -715,6 +720,7 @@
 		0543E85B164BB72E00255154 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "e-Sandik/e-Secmen-Prefix.pch";
 				INFOPLIST_FILE = "e-Sandik/e-Secmen-Info.plist";
@@ -733,6 +739,7 @@
 		0543E85C164BB72E00255154 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "e-Sandik/e-Secmen-Prefix.pch";
 				INFOPLIST_FILE = "e-Sandik/e-Secmen-Info.plist";

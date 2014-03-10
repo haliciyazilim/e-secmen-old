@@ -18,8 +18,8 @@
 				<string>AppIcon60x60</string>
 				<string>Icon-Small</string>
 				<string>Icon</string>
-				<string>app-icon-57.png</string>
-				<string>app-icon-114.png</string>
+				<string></string>
+				<string></string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -43,8 +43,6 @@
 	<true/>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>MainStoryboard_iPad</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
