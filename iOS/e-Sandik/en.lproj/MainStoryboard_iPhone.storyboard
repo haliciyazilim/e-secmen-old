@@ -65,9 +65,6 @@
                                 <color key="textColor" red="0.37647058820000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="V0b-GT-vpq" id="lgb-Gz-2Dz"/>
-                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -292,67 +289,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvY-f2-JDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="558" y="-214"/>
-        </scene>
-        <!--Sandik Login View Controller-->
-        <scene sceneID="Sr4-sN-EMk">
-            <objects>
-                <viewController id="V0b-GT-vpq" customClass="SandikLoginViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2zP-ne-xE0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Telefon No/T.C. Kimlik No Giriniz" textAlignment="center" minimumFontSize="17" background="tcinput_bg.png" clearButtonMode="whileEditing" id="eYA-oN-sFI">
-                                <rect key="frame" x="20" y="134" width="271" height="45"/>
-                                <color key="textColor" red="0.37647058820000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="V0b-GT-vpq" id="sAf-Jy-fzo"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e1v-QN-qbc">
-                                <rect key="frame" x="90" y="273" width="130" height="34"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <state key="normal" title="Giriş" backgroundImage="main_btn_normal.png">
-                                    <color key="titleColor" red="0.2784313725" green="0.15686274510000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" title="Giriş" backgroundImage="main_btn_hover.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkLogin:" destination="V0b-GT-vpq" eventType="touchUpInside" id="R8k-Ij-Ae5"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" text="CHP Bilgi ve İletişim Teknolojileri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QWp-dy-znW">
-                                <rect key="frame" x="20" y="517" width="271" height="21"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Şifre Giriniz" textAlignment="center" minimumFontSize="17" background="tcinput_bg.png" clearButtonMode="whileEditing" id="nAC-Q2-5aj">
-                                <rect key="frame" x="20" y="195" width="271" height="45"/>
-                                <color key="textColor" red="0.37647058820000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="V0b-GT-vpq" id="HiD-GG-a6X"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Fxt-5k-nFR"/>
-                    <connections>
-                        <outlet property="loginButton" destination="e1v-QN-qbc" id="yXB-Vo-mF1"/>
-                        <outlet property="passwordField" destination="nAC-Q2-5aj" id="98s-L1-dFM"/>
-                        <outlet property="usernameField" destination="eYA-oN-sFI" id="Scm-Ul-bkK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZaD-ZP-4Xn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-745" y="594"/>
         </scene>
     </scenes>
     <resources>
