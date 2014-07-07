@@ -198,7 +198,7 @@ static APIManager *sharedInstance = nil;
     }
     
     return [self createNetworkOperationForOperation:@"SandikYeriSorgula_v2"
-                                      andParameters:@{@"TCKN" : tckNo,
+                                      andParameters:@{@"tckn" : tckNo,
                                                         @"babaAdi" : fatherName}
                                        onCompletion:^(NSDictionary *responseDictionary) {
                                            if([[responseDictionary valueForKey:@"HataKodu"] integerValue] == 1){
@@ -206,13 +206,8 @@ static APIManager *sharedInstance = nil;
                                                                                        code:-101
                                                                                    userInfo:@{NSLocalizedDescriptionKey : responseDictionary[@"HataAciklamasi"]}];
                                                errorBlock(apiError);
-                                           }
-                                           else if ([responseDictionary[@"result"][@"LoginDurumu"] boolValue] == true) {
-                                               completionBlock([Voter voterFromDictionary:responseDictionary[@"result"]]);
                                            } else {
-                                               errorBlock([NSError errorWithDomain:@"LoginError"
-                                                                              code:-110
-                                                                          userInfo:@{NSLocalizedDescriptionKey : @"Hatalı kullanıcı adı veya şifre girdiniz. Lütfen tekrar deneyin."}]);
+                                               completionBlock([Voter voterFromDictionary:responseDictionary[@"result"]]);
                                            }
 
                                        }

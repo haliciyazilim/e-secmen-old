@@ -53,14 +53,6 @@
     UIImageView *myImageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg.png"]];
     myImageView2.layer.cornerRadius = 6.0;
     myImageView2.clipsToBounds = YES;
-    
-    UIImageView *myImageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg.png"]];
-    myImageView3.layer.cornerRadius = 6.0;
-    myImageView3.clipsToBounds = YES;
-    
-    UIImageView *myImageView4 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_bg.png"]];
-    myImageView4.layer.cornerRadius = 6.0;
-    myImageView4.clipsToBounds = YES;
 
     UIImageView *myImageView5 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_tile_bg.png"]];
     myImageView5.layer.cornerRadius = 6.0;
@@ -72,39 +64,19 @@
     myImageView6.clipsToBounds = YES;
     myImageView6.alpha = 0.3;
     
-    UIImageView *myImageView7 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_tile_bg.png"]];
-    myImageView7.layer.cornerRadius = 6.0;
-    myImageView7.clipsToBounds = YES;
-    myImageView7.alpha = 0.3;
-
-    UIImageView *myImageView8 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_tile_bg.png"]];
-    myImageView8.layer.cornerRadius = 6.0;
-    myImageView8.clipsToBounds = YES;
-    myImageView8.alpha = 0.3;
-    
     self.nameCell.backgroundView = myImageView;
     self.provinceCell.backgroundView = myImageView2;
-    self.schoolCell.backgroundView = myImageView3;
-    self.chestCell.backgroundView = myImageView4;
     
     self.detailNameCell.backgroundView = myImageView5;
     self.detailProvinceCell.backgroundView = myImageView6;
-    self.detailSchoolCell.backgroundView = myImageView7;
-    self.detailChestCell.backgroundView = myImageView8;
     
     UIView *emptyView = [[UIView alloc] initWithFrame:CGRectZero];
     emptyView.backgroundColor = [UIColor clearColor];
     UIView *emptyView2 = [[UIView alloc] initWithFrame:CGRectZero];
     emptyView2.backgroundColor = [UIColor clearColor];
-    UIView *emptyView3 = [[UIView alloc] initWithFrame:CGRectZero];
-    emptyView3.backgroundColor = [UIColor clearColor];
-    UIView *emptyView4 = [[UIView alloc] initWithFrame:CGRectZero];
-    emptyView4.backgroundColor = [UIColor clearColor];
 
     self.firstEmptyRow.backgroundView = emptyView;
     self.secondEmptyRow.backgroundView = emptyView2;
-    self.thirdEmptyRow.backgroundView = emptyView3;
-    self.fourthEmptyRow.backgroundView = emptyView4;
 
 //    [self configureViews];
     [self configure];
@@ -112,12 +84,6 @@
 - (void) configure {
     self.nameLabel.text = self.voter.name;
     self.provinceLabel.text = self.voter.province;
-    self.schoolLabel.text = self.voter.school;
-    if (self.voter.chest && self.voter.chestIndex) {
-        self.chestLabel.text = [NSString stringWithFormat:@"%@ / %@", self.voter.chest, self.voter.chestIndex];
-    } else {
-        self.chestLabel.text = nil;
-    }
 }
 - (void)viewWillAppear:(BOOL)animated {
 
@@ -168,12 +134,6 @@
     
     self.nameLabel.text = self.voter.name;
     self.provinceLabel.text = self.voter.province;
-    self.schoolLabel.text = self.voter.school;
-    if (self.voter.chest && self.voter.chestIndex) {
-        self.chestLabel.text = [NSString stringWithFormat:@"%@ / %@", self.voter.chest, self.voter.chestIndex];
-    } else {
-        self.chestLabel.text = nil;
-    }
 }
 - (void) viewDidDisappear:(BOOL)animated {
     self.tableView.tableHeaderView = nil;

@@ -35,6 +35,25 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Geri"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:nil];
+    UIImage *buttonImage = [UIImage imageNamed:@"btn_back_normal.png"];
+    
+    UIImage *hoverButtonImage = [UIImage imageNamed:@"btn_back_hover.png"];
+    
+    [backButton setBackButtonBackgroundImage:buttonImage
+                                    forState:UIControlStateNormal
+                                  barMetrics:UIBarMetricsDefault];
+    
+    [backButton setBackButtonBackgroundImage:hoverButtonImage
+                                    forState:UIControlStateHighlighted
+                                  barMetrics:UIBarMetricsDefault];
+    
+    self.navigationItem.backBarButtonItem = backButton;
+
+    
     UIImage *image = [UIImage imageNamed:@"title_esandik.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     
@@ -135,8 +154,7 @@
 
     }
     
-    [self.tckNoTextField resignFirstResponder];
-    
+    [self.view endEditing:YES];
 }
 
 - (IBAction)performQuery:(id)sender {

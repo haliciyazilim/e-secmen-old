@@ -48,12 +48,12 @@
         
         NSDictionary *kunyeDictionary = [aDictionary objectForKey:@"KisiBilgisi"];
         NSArray *buildingArray = [aDictionary objectForKey:@"AyniBinadakiler"];
-        NSArray *chestArray = [aDictionary objectForKey:@"AyniSandiktakiler"];
+//        NSArray *chestArray = [aDictionary objectForKey:@"AyniSandiktakiler"];
         
         _name = [NSString stringWithFormat:@"%@ %@", [kunyeDictionary objectForKey:@"Ad"], [kunyeDictionary objectForKey:@"Soyad"]];
         _province = [NSString stringWithFormat:@"%@ %@ %@", [kunyeDictionary objectForKey:@"Il"], [kunyeDictionary objectForKey:@"Ilce"], [kunyeDictionary objectForKey:@"Mahalle"]];
-        _school = [kunyeDictionary objectForKey:@"SandikAlani"];
-        _chest = [NSString stringWithFormat:@"%@", [kunyeDictionary objectForKey:@"SandikNo"]];
+//        _school = [kunyeDictionary objectForKey:@"SandikAlani"];
+//        _chest = [NSString stringWithFormat:@"%@", [kunyeDictionary objectForKey:@"SandikNo"]];
         _chestIndex = [NSString stringWithFormat:@"%@", [kunyeDictionary objectForKey:@"SandikSiraNo"]];
         if([aDictionary objectForKey:@"EskiListe"]){
             _isInformationsOld = [[aDictionary objectForKey:@"EskiListe"] boolValue];
@@ -78,17 +78,13 @@
         
         _fellowsInBuilding = fellowsInBuildingArray;
         
-        
-        
-        NSMutableArray *fellowsInChestArray = [NSMutableArray array];
-        
-        for (NSDictionary *fellow in chestArray) {
-            [fellowsInChestArray addObject:[Neighbour neighbourFromDictionary:fellow]];
-        }
-        
-        _fellowsInChest = fellowsInChestArray;
-        
-        
+//        NSMutableArray *fellowsInChestArray = [NSMutableArray array];
+//        
+//        for (NSDictionary *fellow in chestArray) {
+//            [fellowsInChestArray addObject:[Neighbour neighbourFromDictionary:fellow]];
+//        }
+//        
+//        _fellowsInChest = fellowsInChestArray;
         
         return self;
     }

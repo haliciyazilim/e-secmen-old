@@ -58,8 +58,8 @@
     SandikBinaBilgisiViewController *sandikBinaBilgisiViewController = [self.viewControllers objectAtIndex:1];
     sandikBinaBilgisiViewController.voter = voter;
     
-    SandikSecmenlerViewController *sandikSecmenlerViewController = [self.viewControllers objectAtIndex:2];
-    sandikSecmenlerViewController.voter = voter;
+//    SandikSecmenlerViewController *sandikSecmenlerViewController = [self.viewControllers objectAtIndex:2];
+//    sandikSecmenlerViewController.voter = voter;
 }
 
 @end
