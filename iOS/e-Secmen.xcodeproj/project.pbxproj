@@ -720,6 +720,10 @@
 		0543E85B164BB72E00255154 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "e-Sandik/e-Secmen-Prefix.pch";
@@ -732,6 +736,7 @@
 				PRODUCT_NAME = "e-Secmen";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -739,6 +744,10 @@
 		0543E85C164BB72E00255154 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "e-Sandik/e-Secmen-Prefix.pch";
@@ -751,6 +760,7 @@
 				PRODUCT_NAME = "e-Secmen";
 				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
