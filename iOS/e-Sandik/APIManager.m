@@ -186,23 +186,20 @@ static APIManager *sharedInstance = nil;
 }
 
 - (MKNetworkOperation *)getVoterWithTckNo:(NSString *)tckNo
-                                 username:(NSString*)username
-                              andPassword:(NSString *)password
+                            andFatherName:(NSString*)fatherName
                              onCompletion:(VoterBlock)completionBlock
                                   onError:(ErrorBlock)errorBlock {
-
-    if ([username characterAtIndex:0] == '0') {
-        username = [username substringFromIndex:1];
-    }
     
     if (tckNo == nil || [tckNo isEqualToString:@""]) {
         tckNo = @"00000000000";
     }
+    if (fatherName == nil) {
+        fatherName = @"";
+    }
     
     return [self createNetworkOperationForOperation:@"SandikYeriSorgula_v2"
-                                      andParameters:@{@"telNo_TCKN" : username,
-                                                           @"Sifre" : password,
-                                                            @"tckn" : tckNo}
+                                      andParameters:@{@"TCKN" : tckNo,
+                                                        @"babaAdi" : fatherName}
                                        onCompletion:^(NSDictionary *responseDictionary) {
                                            if([[responseDictionary valueForKey:@"HataKodu"] integerValue] == 1){
                                                NSError *apiError = [NSError errorWithDomain:@"APIError"
