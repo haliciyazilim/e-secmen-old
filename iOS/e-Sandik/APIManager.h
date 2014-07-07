@@ -28,8 +28,7 @@ typedef void (^VoterBlock) (Voter *voter);
                                   onError:(ErrorBlock)errorBlock;
 
 - (MKNetworkOperation *)getVoterWithTckNo:(NSString *)tckNo
-                                 username:(NSString*)username
-                              andPassword:(NSString *)password
+                            andFatherName:(NSString*)fatherName
                              onCompletion:(VoterBlock)completionBlock
                                   onError:(ErrorBlock)errorBlock;
 
