@@ -20,41 +20,38 @@
             android:layout_centerVertical="true"
             android:paddingBottom="8dp"
             android:src="@drawable/baslik_binabilgisi" />
-        
-         <Button
-            android:id="@+id/infoBinaBilgisi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/icon_info" />
 
     </RelativeLayout>
-    <RelativeLayout
-                        android:id="@+id/RelaLayListeBilgisi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@color/beyaz_opacity"
-                        android:minHeight="30dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="10dp" >
 
-                        <TextView
-                            android:id="@+id/txtListeBilgisi"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:maxLines="3"
-                            android:minWidth="300dp"
-                            android:paddingLeft="30dp"
-                            android:singleLine="false"
-                            android:text=""
-                            android:textColor="@color/beyaz" />
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
-                    </RelativeLayout>
+        <TextView
+            android:id="@+id/txtBaslikSecmenler"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="20dp"
+            android:text="Binanızda oy kullanan seçmenler"
+            android:textColor="@color/beyaz" />
+		
+		<TextView
+		    android:id="@+id/txtBaslikKapi"
+		    android:layout_width="50dip"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center_vertical|center_horizontal"
+		    android:layout_marginRight="20dp"
+		    android:gravity="center_vertical|center_horizontal"
+		    android:text="Kapı No"
+		    android:textAlignment="gravity"
+		    android:textColor="@color/beyaz" />
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/listBina"
         android:layout_width="match_parent"
