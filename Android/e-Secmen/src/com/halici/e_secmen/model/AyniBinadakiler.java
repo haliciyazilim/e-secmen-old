@@ -31,7 +31,7 @@ public class AyniBinadakiler {
 			JSONObject json= new JSONObject(this.gelenVeri);
 			JSONArray binaBilgisiArray=json.getJSONArray(ayniBinadakiler);
 			
-			System.out.println("Ayni B�nadakiler B�na B�lgisi Array: "+binaBilgisiArray);
+			System.out.println("Ayni Binadakiler Bina Bilgisi Array: "+binaBilgisiArray);
 			
 			
 			String isim, soyisim, kapiNumarasi;
@@ -40,7 +40,7 @@ public class AyniBinadakiler {
 			soyisim=binaBilgisiArray.getJSONObject(0).getString(soyad).toString();
 			kapiNumarasi=binaBilgisiArray.getJSONObject(0).getString(kapiNo).toString();
 			
-			System.out.println("Ayni B�nadakiler B�na B�lgisi icerik:  "+isim+" "+soyisim+" "+kapiNumarasi);
+			System.out.println("Ayni Binadakiler Bina Bilgisi icerik:  "+isim+" "+soyisim+" "+kapiNumarasi);
 			
 			for(int i=0; i<binaBilgisiArray.length();i++){
 				

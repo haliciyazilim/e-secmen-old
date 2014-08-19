@@ -60,7 +60,7 @@ public class Sorgu extends Activity {
 					editSorgu.setText("");
 				}
 				else if(editBabaAdi.length()==0){
-					Toast.makeText(getApplicationContext(), "Lütfen baba adýnýzý giriniz.",  Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "LÃ¼tfen baba adÄ±nÄ±zÄ± giriniz.",  Toast.LENGTH_LONG).show();
 					return;
 				}
 				else{
@@ -74,7 +74,7 @@ public class Sorgu extends Activity {
 						new Servis().execute(tckn,babaAdi);
 					}
 					else if(baglanti==false){
-						Toast.makeText(getApplicationContext(), "Ýnternet baðlantýnýz ile ilgili bir sorun var, lütfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "Ä°nternet baÄŸlantÄ±nÄ±z ile ilgili bir sorun var, lÃ¼tfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
 					}	
 				}
 			}
@@ -82,11 +82,11 @@ public class Sorgu extends Activity {
     }
 	
 	public void kimlikNoHaneUyarisi(){
-    	Toast.makeText(getApplicationContext(), "Kimlik numaranýzý 11 hane olarak giriniz!",  Toast.LENGTH_LONG).show();
+    	Toast.makeText(getApplicationContext(), "Kimlik numaranÄ±zÄ± 11 hane olarak giriniz!",  Toast.LENGTH_LONG).show();
     }
 	
 	public void kimlikNoYokUyarisi(){
-    	Toast.makeText(getApplicationContext(), "Lütfen Kimlik Numaranýzý Giriniz.",  Toast.LENGTH_LONG).show();
+    	Toast.makeText(getApplicationContext(), "LÃ¼tfen Kimlik NumaranÄ±zÄ± Giriniz.",  Toast.LENGTH_LONG).show();
     }
 	
 	
@@ -175,7 +175,7 @@ public class Sorgu extends Activity {
 		protected void onPreExecute() {
 			 //dialog=ProgressDialog.show(SecmenKunye.this, "Baslik", "Mesaj-Calculating",true);
 			
-			dialog.setMessage("Lütfen bekleyiniz; seçmen bilgileriniz yükleniyor.");
+			dialog.setMessage("LÃ¼tfen bekleyiniz; seÃ§men bilgileriniz yÃ¼kleniyor.");
 			dialog.show();
 		}
 

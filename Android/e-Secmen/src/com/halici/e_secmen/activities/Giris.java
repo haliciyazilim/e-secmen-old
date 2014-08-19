@@ -140,11 +140,11 @@ public class Giris extends Activity {
 		}
 		
 		if(this.userName.length()<10){
-			Toast.makeText(getApplicationContext(), "Lütfen 10 haneli telefon numaranýzý ya da 11 haneli kimlik numaranýzý giriniz.",  Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "LÃ¼tfen 10 haneli telefon numaranÄ±zÄ± ya da 11 haneli kimlik numaranÄ±zÄ± giriniz.",  Toast.LENGTH_LONG).show();
 			return;
 		}
 		else if(this.password.length()==0){
-			Toast.makeText(getApplicationContext(), "Lütfen baba adýnýzý giriniz.",  Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "LÃ¼tfen baba adÄ±nÄ±zÄ± giriniz.",  Toast.LENGTH_LONG).show();
 			return;
 		}
 		
@@ -156,7 +156,7 @@ public class Giris extends Activity {
 			
 		}
 		else if(baglanti==false){
-			Toast.makeText(getApplicationContext(), "Ýnternet baðlantýnýz ile ilgili bir sorun var; lütfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "Ä°nternet baÄŸlantÄ±nÄ±z ile ilgili bir sorun var; lÃ¼tfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
 		}
 		
 		/*
@@ -208,12 +208,12 @@ public class Giris extends Activity {
 					
 				}
 				else if(!loginDurumu)
-					Toast.makeText(getApplicationContext(), "Girdiðiniz bilgilerde hata var; lütfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "GirdiÄŸiniz bilgilerde hata var; lÃ¼tfen kontrol ediniz.",  Toast.LENGTH_LONG).show();
 				else
-					Toast.makeText(getApplicationContext(), "Sistemde bir hata oluþtu lütfen daha sonra tekrar deneyiniz.",  Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "Sistemde bir hata oluÅŸtu lÃ¼tfen daha sonra tekrar deneyiniz.",  Toast.LENGTH_LONG).show();
 				
 			} catch (JSONException e) {
-				Toast.makeText(getApplicationContext(), "Sistemde bir hata oluþtu lütfen daha sonra tekrar deneyiniz.",  Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "Sistemde bir hata oluÅŸtu lÃ¼tfen daha sonra tekrar deneyiniz.",  Toast.LENGTH_LONG).show();
 				e.printStackTrace();
 			}
 		
@@ -223,7 +223,7 @@ public class Giris extends Activity {
 		protected void onPreExecute() {
 			 //dialog=ProgressDialog.show(SecmenKunye.this, "Baslik", "Mesaj-Calculating",true);
 			
-			dialog.setMessage("Lütfen bekleyiniz; Giriþ yapýlýyor.");
+			dialog.setMessage("LÃ¼tfen bekleyiniz; GiriÅŸ yapÄ±lÄ±yor.");
 			dialog.show();
 		}
 

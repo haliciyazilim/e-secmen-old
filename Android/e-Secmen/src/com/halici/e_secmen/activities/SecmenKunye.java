@@ -61,7 +61,7 @@ public class SecmenKunye extends Fragment {
 		sandikNumarasi=((Sonuclar)getActivity()).sandikNumarasi;
 		sandikSirasi=((Sonuclar)getActivity()).sandikSirasi;
 		
-		System.out.println("Se�men K�nye: "+secimYili+", "+eskiListe);
+		System.out.println("Seçmen Künye: "+secimYili+", "+eskiListe);
 		
 	        
 	    //new Servis().execute(kimlikNo);

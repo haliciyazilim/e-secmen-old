@@ -45,7 +45,7 @@ public class BinaBilgisi extends Fragment {
 		view=(LinearLayout)inflater.inflate(R.layout.bina_bilgisi_layout, container, false);
 		binaBilgisi=((Sonuclar)getActivity()).binaBilgisi;
 		String[] sutunIsim ={"isim","kapiNo"};
-		//System.out.println("Bina B�lgisi: "+binaBilgisi.size());
+		//System.out.println("Bina Bilgisi: "+binaBilgisi.size());
 		
 		for(int i=0; i<binaBilgisi.size();i++){
 			HashMap<String,String> map = binaBilgisi.get(i);

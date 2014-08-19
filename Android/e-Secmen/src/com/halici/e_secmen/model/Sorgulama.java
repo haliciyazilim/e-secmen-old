@@ -18,17 +18,17 @@ public class Sorgulama {
 	//webServisin yeri
 	final static String NAMESPACE="http://tempuri.org/";
 			 
-	// kullanýlan metot
+	// kullanï¿½lan metot
 	//final static String METHOD_NAME_LOGIN="ESANDIK_Login";
 	final static String METHOD_NAME_LOGIN="ESECMEN_LoginKontrol";
-	final static String METHOD_NAME_SANDIK_YERI="SandikYeriSorgula_v2";
+	final static String METHOD_NAME_SANDIK_YERI="SandikYeriSorgula_v3";
 			 
 	// soap_action
 	//final static String SOAP_ACTION_LOGIN="http://tempuri.org/ESANDIK_Login";
 	final static String SOAP_ACTION_LOGIN="http://tempuri.org/ESECMEN_LoginKontrol";
-	final static String SOAP_ACTION_SANDIK_YERI="http://tempuri.org/SandikYeriSorgula_v2";
+	final static String SOAP_ACTION_SANDIK_YERI="http://tempuri.org/SandikYeriSorgula_v3";
 			 
-	// webservise ait url tanimlamasý
+	// webservise ait url tanimlamasï¿½
 	final static String URL = "http://bilisim.chp.org.tr/MobilService.asmx";
 	
 	
@@ -49,8 +49,8 @@ public class Sorgulama {
 		System.out.println("******Sorgulama: "+this.tckn+", "+this.tckn+", "+this.babaAdi);
 		
 		// requeste bilgi ekleniyor.
-		request.addProperty("tckn", this.tckn);
-		request.addProperty("babaAdi", this.babaAdi);
+		request.addProperty("esecmenTckn", this.tckn);
+		request.addProperty("esecmenBabaAdi", this.babaAdi);
 					
 		//Web servisin versiyonunu bildiriyoruz.
 		SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
