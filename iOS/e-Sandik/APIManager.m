@@ -197,9 +197,9 @@ static APIManager *sharedInstance = nil;
         fatherName = @"";
     }
     
-    return [self createNetworkOperationForOperation:@"SandikYeriSorgula_v2"
-                                      andParameters:@{@"tckn" : tckNo,
-                                                        @"babaAdi" : fatherName}
+    return [self createNetworkOperationForOperation:@"SandikYeriSorgula_v3"
+                                      andParameters:@{@"esecmenTckn" : tckNo,
+                                                        @"esecmenBabaAdi" : fatherName}
                                        onCompletion:^(NSDictionary *responseDictionary) {
                                            if([[responseDictionary valueForKey:@"HataKodu"] integerValue] == 1){
                                                NSError *apiError = [NSError errorWithDomain:@"APIError"
